@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<p>Gebe deinen Namen ein!</p>
+
+<button onclick="myFunction()">Eingabe</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var person = prompt("Dein Name");
+    if (person != null) {
+        document.getElementById("demo").innerHTML =
+        "Hallo " + person + "! Alles Klar?";
+    }
+}
+</script>
+
+</body>
+</html>
