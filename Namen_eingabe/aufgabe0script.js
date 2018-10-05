@@ -7,7 +7,7 @@ var aufgabe0;
         node.innerHTML += "Servus ";
         node.innerHTML += k;
         node.innerHTML += ", ich grue�e dich!";
-        console.log("Servus ", k, ", ich gr��e dich!");
+        console.log("Servus ", k, ", ich grue�e dich!");
     }
     document.addEventListener('DOMContentLoaded', main);
 })(aufgabe0 || (aufgabe0 = {}));

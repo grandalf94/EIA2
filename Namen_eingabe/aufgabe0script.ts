@@ -8,7 +8,7 @@ namespace aufgabe0 {
         node.innerHTML += "Servus ";
         node.innerHTML += k;
         node.innerHTML += ", ich grueﬂe dich!";
-        console.log("Servus ",k,", ich gr¸ﬂe dich!");
+        console.log("Servus ",k,", ich grueﬂe dich!");
         }
 
     
