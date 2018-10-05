@@ -2,11 +2,11 @@ var aufgabe0;
 (function (aufgabe0) {
     var k = "";
     function main() {
-        var i = prompt("Gib deinen Namen ein");
+        var k = prompt("Gib deinen Namen ein");
         var node = document.getElementById("inhalt");
         node.innerHTML += "Servus ";
         node.innerHTML += k;
-        node.innerHTML += ", ich gr��e dich!";
+        node.innerHTML += ", ich grue�e dich!";
         console.log("Servus ", k, ", ich gr��e dich!");
     }
     document.addEventListener('DOMContentLoaded', main);
