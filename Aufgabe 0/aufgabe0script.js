@@ -1,6 +1,6 @@
 var aufgabe0;
 (function (aufgabe0) {
-    var k = "";
+    /**var k : string ="";**/
     function main() {
         var k = prompt("Gib deinen Namen ein");
         var node = document.getElementById("inhalt");

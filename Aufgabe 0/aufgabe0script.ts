@@ -1,6 +1,6 @@
 
 namespace aufgabe0 {
-    var k : string ="";
+    /**var k : string ="";**/
         
     function main() {
         var k = prompt("Gib deinen Namen ein");
