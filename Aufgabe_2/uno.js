@@ -85,6 +85,9 @@ var uno;
         s.bottom = 40 + "px";
         s.borderRadius = 10 + "px";
         s.color = "white";
+        if (_farbe == "#ffff00") {
+            s.color = "black";
+        }
     }
     function main() {
         let n;

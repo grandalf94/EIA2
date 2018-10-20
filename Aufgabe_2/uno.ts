@@ -98,6 +98,12 @@ namespace uno {
         s.bottom = 40 + "px";
         s.borderRadius = 10 + "px";
         s.color = "white";
+        
+            
+             if (_farbe == "#ffff00") { //Wenn Hintergrund Gelb -> Schrift schwarz
+             s.color = "black";
+             }
+
 
         }
     
