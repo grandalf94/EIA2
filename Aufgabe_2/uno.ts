@@ -189,12 +189,12 @@ function Stapel(_n: number): void {
             let s: CSSStyleDeclaration = div.style;
             s.border = "thin solid black";
             s.position = "absolute";
-            s.backgroundColor = "#f0f0f0";
-            s.width = 50 + "px";
+            s.backgroundColor = "#38610B";
+            s.width = 140 + "px";
             s.height = 130 + "px";
             s.left = (_n + 0.5) * 20 + "px";
             s.top = (_n + 0.5) * 10 + "px";
-            s.borderRadius = 5 + "px";
+            s.borderRadius = 10 + "px";
         }
 
         function Ablage(): void {
