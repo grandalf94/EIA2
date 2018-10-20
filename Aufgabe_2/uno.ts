@@ -215,9 +215,9 @@ function Stapel(_n: number): void {
             s.border = "thin solid black";
             s.textAlign = "center";
             s.position = "absolute";
-            s.backgroundColor = "white";
-            s.width = 90 + "px";
-            s.height = 170 + "px";
+            s.backgroundColor = "#abd19a";
+            s.width = 120 + "px";
+            s.height = 200 + "px";
             s.right = 50 + "px";
             s.top = 20 + "px";
         }
