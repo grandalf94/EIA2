@@ -79,15 +79,16 @@ var uno;
         s.textAlign = "center";
         s.position = "absolute";
         s.backgroundColor = _farbe;
-        s.width = 50 + "px";
-        s.height = 130 + "px";
+        s.width = 90 + "px";
+        s.height = 170 + "px";
         s.left = (_x + 0.5) * 100 + "px";
         s.bottom = 40 + "px";
-        s.borderRadius = 5 + "px";
+        s.borderRadius = 10 + "px";
+        s.color = "white";
     }
     function main() {
         let n;
-        let i = prompt("Wie viele Karten pro Spieler?");
+        let i = prompt("Wie viele Handkarten pro Spieler");
         n = Number(i);
         for (let d = 0; d < n; d++) {
             let l = random(15); //l = Zufallswert von 0-14 (alle Karten)
@@ -170,8 +171,8 @@ var uno;
             s.border = "thin solid black";
             s.position = "absolute";
             s.backgroundColor = "#38610B";
-            s.width = 140 + "px";
-            s.height = 130 + "px";
+            s.width = 90 + "px";
+            s.height = 170 + "px";
             s.left = (_n + 0.5) * 20 + "px";
             s.top = (_n + 0.5) * 10 + "px";
             s.borderRadius = 10 + "px";
@@ -186,8 +187,8 @@ var uno;
             s.textAlign = "center";
             s.position = "absolute";
             s.backgroundColor = "white";
-            s.width = 70 + "px";
-            s.height = 150 + "px";
+            s.width = 90 + "px";
+            s.height = 170 + "px";
             s.right = 50 + "px";
             s.top = 20 + "px";
         }
