@@ -60,7 +60,7 @@ var uno;
         typ: "14",
         farben: [4, 4, 4, 4]
     };
-    let c = ""; //Farbcode
+    let c = ""; //der Farbcode
     /**Karten kommen in "Deck" Array */
     let deckArray = [karte_0, karte_1, karte_2, karte_3, karte_4, karte_5, karte_6, karte_7, karte_8,
         karte_9, karte_Plus_2, karte_RichtungsWechsel, karte_Aussetzen, karte_Plus_4, karte_Farbenwunsch];
@@ -68,12 +68,12 @@ var uno;
     function random(z) {
         return Math.floor(Math.random() * Math.floor(z));
     }
+    /** Funktion um Handkarten visuell darzustellen */
     function placeDiv(_farbe, _y, _x) {
         let div = document.createElement("div");
         document.body.appendChild(div);
-        div.setAttribute("id", "a" + _x); //div ID in Abh�ngigkeit von _x (aktuelle Karte die gegeben wird)
-        document.getElementById("a" + _x).innerHTML += _y; //Bezeichnung der Karte als HTML in div
-        //console.log(_color, _n, _x);
+        div.setAttribute("id", "a" + _x);
+        document.getElementById("a" + _x).innerHTML += _y;
         let s = div.style;
         s.border = "thin solid black";
         s.textAlign = "center";

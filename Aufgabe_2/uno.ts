@@ -1,7 +1,8 @@
 namespace uno {
     
     
-    /** Karten werden mithilfe eines Interfaces erstellt */
+    /** Karten werden mithilfe eines Interfaces erstellt
+    die Farben werden als Nummern gespeichert */
     interface Karten {
         typ: string;
         farben: number[];
@@ -68,7 +69,7 @@ namespace uno {
         farben: [4,4,4,4]       
      }
     
-    let c: string = ""; //Farbcode
+    let c: string = ""; //der Farbcode
     
    /**Karten kommen in "Deck" Array */
     let deckArray : Karten [] = [karte_0, karte_1, karte_2, karte_3, karte_4, karte_5, karte_6, karte_7, karte_8,
@@ -79,14 +80,13 @@ namespace uno {
         return Math.floor(Math.random() * Math.floor(z));
        }
 
-    
+    /** Funktion um Handkarten visuell darzustellen */
         function placeDiv(_farbe: string, _y: string, _x: number): void {
         let div: HTMLDivElement = document.createElement("div");
         document.body.appendChild(div);
-        div.setAttribute("id", "a" + _x) //div ID in Abhängigkeit von _x (aktuelle Karte die gegeben wird)
-
-        document.getElementById("a" + _x).innerHTML += _y; //Bezeichnung der Karte als HTML in div
-        //console.log(_color, _n, _x);
+        div.setAttribute("id", "a" + _x) 
+            
+        document.getElementById("a" + _x).innerHTML += _y; 
         let s: CSSStyleDeclaration = div.style;
         s.border = "thin solid black";
         s.textAlign = "center";
