@@ -1,3 +1,14 @@
+/** Aufgabe: Aufgabe 1
+Name: Joel Stark
+Matrikel: 259546
+Datum: 21.10.2018
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
+Er wurde nicht kopiert und auch nicht diktiert.
+
+Ich habe mir bei dieser Aufgabe viel von Nico Herrmans Code und Konzept helfen lassen, um mein eigenes Konzept
+fertig zu bekommen, ich hoffe, das obwohl vieles gleich zu sein scheint wie bei Nico Herrmans Code, doch beachtet wird das
+ich meinen eigenen weg gegangen bin und es einige wesentliche Unterschiede gibt bspw. farben[], (deckArray[l].farben[2] || deckArray[l].farben[3] == 1) {
+placeDiv(c, deckArray[l].typ, d); deckArray[l].farben.splice(2, 1);  */
 var uno;
 (function (uno) {
     let karte_0 = {
@@ -195,7 +206,7 @@ var uno;
             s.right = 50 + "px";
             s.top = 20 + "px";
         }
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 10; i++) {
             Stapel(i);
         }
         Ablage();
