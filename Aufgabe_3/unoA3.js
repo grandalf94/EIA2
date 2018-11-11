@@ -1,7 +1,7 @@
 /**-- Aufgabe: Aufgabe 1
 Name: Joel Stark
 Matrikel: 259546
-Datum: 28.10.2018
+Datum: 11.11.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 Er wurde nicht kopiert und auch nicht diktiert.*/
 var unoA3;
