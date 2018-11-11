@@ -1,0 +1,98 @@
+
+@charset "UTF-8";
+
+#Discardpile {
+	background-color: #99A9B6;
+	width: 140px;
+	height: 190px;
+	border-radius: 0.7em;
+	position: absolute;
+	display: inline;
+	right: 1em;
+	top: 1em;
+}
+
+div {
+	font-family: 'Source Sans Pro', sans-serif;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+p {
+	margin-top: 5px;
+}
+
+#Deck {
+	background-color: #977474;
+	width: 140px;
+	height: 190px;
+	position: absolute;
+	border-radius: 0.7em;
+	left: 1em;
+	top: 1em;
+}
+
+#Handcards {
+	bottom: 0px;
+	display: inline;
+	position: absolute;
+}
+
+.Handcards {
+	display: inline-block;
+	margin: 0.5em;
+}
+
+button {
+	background-color: black;
+	border: none;
+	border-radius: 0.7em;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	cursor: pointer;
+	position: absolute;
+	margin-left: 0.5em;
+	top: 73%;
+	width: 140px;
+}
+
+.red {
+	background: red;
+	width: 140px;
+	height: 190px;
+	border-radius: 0.7em;
+}
+
+.blue {
+	background: blue;
+	width: 140px;
+	height: 190px;
+	border-radius: 0.7em;
+	color: white;
+}
+
+.green {
+	background: green;
+	width: 140px;
+	height: 190px;
+	border-radius: 0.7em;
+}
+
+.yellow {
+	background: yellow;
+	width: 140px;
+	height: 190px;
+	border-radius: 0.7em;
+}
+
+.black {
+	background: black;
+	width: 140px;
+	height: 190px;
+	border-radius: 0.7em;
+	color: white;
+}
