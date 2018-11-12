@@ -33,3 +33,11 @@
     background: #ddd;
     color: black;
 } 
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.1;
+
+}
