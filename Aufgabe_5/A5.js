@@ -1,246 +1,164 @@
 var Aufgabe05;
 (function (Aufgabe05) {
-    document.addEventListener("DOMContentLoaded", fillFieldset);
+    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", fillFieldset2);
     document.addEventListener("DOMContentLoaded", changeListener);
+    function init(_event) {
+        console.log(Aufgabe05.assoProducts);
+        displayAssoArray(Aufgabe05.assoProducts);
+    }
+    ;
+    function displayAssoArray(_assoArray) {
+        for (let key in _assoArray) {
+            let value = _assoArray[key];
+            if (key == "treeSpecies" || key == "holder" || key == "shipment") {
+                for (let i = 0; i < value.length; i++)
+                    fillFieldsetCheck(value[i], i, key);
+            }
+            if (key != "treeSpecies" && key != "holder" && key != "shipment") {
+                for (let i = 0; i < value.length; i++)
+                    fillFieldset(value[i], i, key);
+            }
+        }
+    }
+    //Change Listener
     function changeListener(_event) {
         let fieldset = document.getElementById("fieldset");
         fieldset.addEventListener("change", handleChange);
     }
-    let priceTree = 0;
-    let priceHolder = 0;
-    let priceBalls = 0;
-    let priceLametta = 0;
-    let priceCandle = 0;
-    let priceShipping = 0;
-    let numberOfBalls = 0;
-    let numberOfLametta = 0;
-    let numberOfCandle = 0;
     let adress = "";
-    function fillFieldset() {
-        console.log("");
+    let checkTree = 0;
+    let checkHolder = 0;
+    let checkShipping = 0;
+    function fillFieldsetCheck(_products, i, key) {
         let node = document.getElementById("fieldset");
         document.getElementById("button").addEventListener("click", checkCheckout);
         let childNodeHTML;
-        //Baumart
-        childNodeHTML = "<h3>Baumart</h3>";
-        for (let i = 0; i < Aufgabe05.treeSpecies.length; i++) {
-            childNodeHTML += "<input type='radio' name='Radiogrouptree' value='" + i + Aufgabe05.treeSpecies[i].name + " " + Aufgabe05.treeSpecies[i].price + " Euro'  id='radio" + i + "' />";
-            childNodeHTML += "<label for='check" + i + "'>" + Aufgabe05.treeSpecies[i].name + " " + Aufgabe05.treeSpecies[i].price + " Euro</label>";
+        //Waren
+        if (i == 0) {
+            childNodeHTML = "<h3>" + _products.typ + "</h3>";
+            childNodeHTML += "<hr>";
+            childNodeHTML += "<section id='" + key + "'>";
+            childNodeHTML += "</section>";
+            node.innerHTML += childNodeHTML;
         }
-        childNodeHTML += "<hr>";
-        //Halterung
-        childNodeHTML += "<h3>Halterung</h3>";
-        childNodeHTML += "<select name='Select' id='holderType'>";
-        for (let i = 0; i < Aufgabe05.holderType.length; i++) {
-            childNodeHTML += "<option value='" + i + Aufgabe05.holderType[i].name + " " + Aufgabe05.holderType[i].price + " Euro'>" + Aufgabe05.holderType[i].name + " " + Aufgabe05.holderType[i].price + " Euro</option>";
+        let radio = document.createElement("input");
+        radio.setAttribute("type", "radio");
+        radio.setAttribute("name", _products.typ);
+        radio.setAttribute("value", "0");
+        radio.setAttribute("title", _products.name);
+        radio.setAttribute("price", _products.price.toFixed());
+        radio.setAttribute("item", _products.typ);
+        radio.setAttribute("id", _products.name);
+        document.getElementById(key).appendChild(radio);
+        let radioLabel = document.createElement("label");
+        radioLabel.setAttribute("for", _products.name);
+        radioLabel.innerText = _products.name + " " + _products.price.toFixed() + " Euro";
+        document.getElementById(key).appendChild(radioLabel);
+    }
+    function fillFieldset(_products, i, key) {
+        let node = document.getElementById("fieldset");
+        document.getElementById("button").addEventListener("click", checkCheckout);
+        let childNodeHTML;
+        //Waren
+        if (i == 0) {
+            childNodeHTML = "<h3>" + _products.typ + "</h3>";
+            childNodeHTML += "<hr>";
+            childNodeHTML += "<section id='" + key + "'>";
+            childNodeHTML += "</section>";
+            node.innerHTML += childNodeHTML;
         }
-        childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
-        childNodeHTML += "<hr>";
-        //Kugeln
-        childNodeHTML += "<h3>Kugeln</h3>";
-        childNodeHTML += "<select name='Select' id='christmasBall'>";
-        for (let i = 0; i < Aufgabe05.christmasBall.length; i++) {
-            childNodeHTML += "<option value='" + i + Aufgabe05.christmasBall[i].name + " " + Aufgabe05.christmasBall[i].price + " Euro'>" + Aufgabe05.christmasBall[i].name + " " + Aufgabe05.christmasBall[i].price + " Euro</option>";
-        }
-        childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
-        childNodeHTML += "<h3>Anzahl in Stueck</h3>";
-        childNodeHTML += "<select name='Select' id='Amount1'>";
-        for (let i = 0; i < 18; i++) {
-            childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
-        }
-        childNodeHTML += "</select>";
-        childNodeHTML += "<hr>";
-        //Lametta
-        childNodeHTML += "<h3>Lametta</h3>";
-        childNodeHTML += "<select name='Select' id='tinsels'>";
-        for (let i = 0; i < Aufgabe05.lametta.length; i++) {
-            childNodeHTML += "<option value='" + i + Aufgabe05.lametta[i].name + " " + Aufgabe05.lametta[i].price + " Euro'>" + Aufgabe05.lametta[i].name + " " + Aufgabe05.lametta[i].price + " Euro</option>";
-        }
-        childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
-        childNodeHTML += "<h3>Laenge in Meter</h3>";
-        childNodeHTML += "<select name='Select' id='Amount2'>";
-        for (let i = 0; i < 6; i++) {
-            childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
-        }
-        childNodeHTML += "</select>";
-        childNodeHTML += "<hr>";
-        //Kerzen
-        childNodeHTML += "<h3>Kerzen</h3>";
-        childNodeHTML += "<select name='Select' id='candles'>";
-        for (let i = 0; i < Aufgabe05.candleType.length; i++) {
-            childNodeHTML += "<option value='" + i + Aufgabe05.candleType[i].name + " " + Aufgabe05.candleType[i].price + " Euro'>" + Aufgabe05.candleType[i].name + " " + Aufgabe05.candleType[i].price + " Euro</option>";
-        }
-        childNodeHTML += "</select>";
-        childNodeHTML += "<br>";
-        childNodeHTML += "<h3>Anzahl in Stueck</h3>";
-        childNodeHTML += "<select name='Select' id='Amount3'>";
-        for (let i = 0; i < 21; i++) {
-            childNodeHTML += "<option value='*" + i + "'>" + i + "</option>";
-        }
-        childNodeHTML += "</select>";
-        childNodeHTML += "<hr>";
-        //Lieferoptionen
-        childNodeHTML += "<h3>Lieferoptionen</h3>";
-        for (let i = 0; i < Aufgabe05.shipment.length; i++) {
-            childNodeHTML += "<input type='radio' name='Radiogroupshipment' value='" + i + Aufgabe05.shipment[i].name + " " + Aufgabe05.shipment[i].price + " Euro'  id='radio" + i + "' />";
-            childNodeHTML += "<label for='check" + i + "'>" + Aufgabe05.shipment[i].name + " " + Aufgabe05.shipment[i].price + " Euro</label>";
-        }
-        childNodeHTML += "<br>";
-        //Adresse
-        childNodeHTML += "<h3>Adresse</h3>";
-        childNodeHTML += "<input id='ad' type='text' name='Text' placeholder='enter adress here' required/>";
-        node.innerHTML += childNodeHTML;
+        let option = document.createElement("p");
+        option.setAttribute("value", _products.name + " " + _products.price + " Euro");
+        option.innerText = _products.name + " " + _products.price + " Euro";
+        document.getElementById(key).appendChild(option);
+        let steper = document.createElement("input");
+        steper.setAttribute("type", "number");
+        steper.setAttribute("name", " Stepper");
+        steper.setAttribute("step", "1");
+        steper.setAttribute("min", "0");
+        steper.setAttribute("max", "50");
+        steper.setAttribute("value", "0");
+        steper.setAttribute("item", _products.typ);
+        steper.setAttribute("title", _products.name);
+        steper.setAttribute("price", _products.price.toFixed());
+        document.getElementById(key).appendChild(steper);
+    }
+    //Adresse
+    function fillFieldset2() {
+        document.getElementById("button").addEventListener("click", checkCheckout);
+        let fieldset = document.getElementById("fieldset2");
+        fieldset.addEventListener("change", handleChange);
+        let input = document.createElement("input");
+        input.setAttribute("id", "ad");
+        document.getElementById("fieldset2").appendChild(input);
     }
     function handleChange(_event) {
         let target = _event.target;
-        //B�ume radio
-        if (target.name == "Radiogrouptree") {
-            let node = document.getElementById("tree");
-            let value = target.value;
-            let priceIndex = parseInt(value.substr(0, 1));
-            priceTree = Aufgabe05.treeSpecies[priceIndex].price;
-            console.log(priceTree);
-            let childNodeHTML;
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + value.substr(1);
-            childNodeHTML += "</a>";
-            node.innerHTML = childNodeHTML;
+        let articles = document.getElementsByTagName("input");
+        let div = document.getElementById("div");
+        let section = document.getElementById("selectedArticle");
+        section.innerHTML = "";
+        for (let i = 0; i < articles.length - 1; i++) {
+            let article = articles[i];
+            let section = document.getElementById("selectedArticle");
+            let p = document.createElement("p");
+            let articleTyp = article.getAttribute("item");
+            let articleName = article.getAttribute("title");
+            let articlePrice = parseInt(article.getAttribute("price"));
+            if (article.type == "radio") {
+                if (article.checked == true) {
+                    article.setAttribute("value", "1");
+                    if (target.name == "Baum") {
+                        checkTree = 1;
+                    }
+                    if (target.name == "Halterung") {
+                        checkHolder = 1;
+                    }
+                    if (target.name == "Lieferoptionen") {
+                        checkShipping = 1;
+                    }
+                }
+                else if (article.checked == false) {
+                    article.setAttribute("value", "0");
+                }
+            }
+            let domAmount = target.value;
+            target.setAttribute("value", domAmount);
+            let articleAmount = parseInt(article.getAttribute("value"));
+            let price = articlePrice * articleAmount;
+            p.setAttribute("price", price.toString());
+            if (articleAmount > 0) {
+                p.innerText += articleTyp + ": " + articleAmount + " " + articleName + " " + price + " Euro";
+            }
+            section.appendChild(p);
         }
-        //Halterung dropdown
-        if (target.id == "holderType") {
-            let node = document.getElementById("holder");
-            let value = target.value;
-            let priceIndex = parseInt(value.substr(0, 1));
-            priceHolder = Aufgabe05.holderType[priceIndex].price;
-            console.log(priceHolder);
-            let childNodeHTML;
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + value.substr(1);
-            childNodeHTML += "</a>";
-            node.innerHTML = childNodeHTML;
-        }
-        //Balls dropdown
-        if (target.id == "christmasBall") {
-            let node = document.getElementById("ball");
-            let value = target.value;
-            let priceIndex = parseInt(value.substr(0, 1));
-            priceBalls = Aufgabe05.christmasBall[priceIndex].price;
-            console.log(priceBalls);
-            let childNodeHTML;
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + value.substr(1);
-            childNodeHTML += "</a>";
-            node.innerHTML = childNodeHTML;
-        }
-        if (target.id == "Amount1") {
-            let node = document.getElementById("ballAmount");
-            let value = target.value;
-            let numIndex = parseInt(value.substr(1, 2));
-            numberOfBalls = numIndex;
-            console.log(numberOfBalls);
-            let childNodeHTML;
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + target.value;
-            childNodeHTML += "</a>";
-            node.innerHTML = childNodeHTML;
-        }
-        //Lametta dropdown
-        if (target.id == "tinsels") {
-            let node = document.getElementById("tinsel");
-            let value = target.value;
-            let priceIndex = parseInt(value.substr(0, 1));
-            priceLametta = Aufgabe05.lametta[priceIndex].price;
-            console.log(priceLametta);
-            let childNodeHTML;
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + value.substr(1);
-            childNodeHTML += "</a>";
-            node.innerHTML = childNodeHTML;
-        }
-        if (target.id == "Amount2") {
-            let node = document.getElementById("tinselAmount");
-            let value = target.value;
-            let numIndex = parseInt(value.substr(1, 2));
-            numberOfLametta = numIndex;
-            console.log(numberOfLametta);
-            let childNodeHTML;
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + target.value;
-            childNodeHTML += "</a>";
-            node.innerHTML = childNodeHTML;
-        }
-        //Kerzen dropdown
-        if (target.id == "candles") {
-            let node = document.getElementById("candle");
-            let value = target.value;
-            let priceIndex = parseInt(value.substr(0, 1));
-            priceCandle = Aufgabe05.candleType[priceIndex].price;
-            console.log(priceCandle);
-            let childNodeHTML;
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + value.substr(1);
-            childNodeHTML += "</a>";
-            node.innerHTML = childNodeHTML;
-        }
-        if (target.id == "Amount3") {
-            let node = document.getElementById("candleAmount");
-            let value = target.value;
-            let numIndex = parseInt(value.substr(1, 2));
-            numberOfCandle = numIndex;
-            console.log(numberOfCandle);
-            let childNodeHTML;
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + target.value;
-            childNodeHTML += "</a>";
-            node.innerHTML = childNodeHTML;
-        }
-        //Lieferoption radio 
-        if (target.name == "Radiogroupshipment") {
-            let node = document.getElementById("shipping");
-            let value = target.value;
-            let priceIndex = parseInt(value.substr(0, 1));
-            priceShipping = Aufgabe05.shipment[priceIndex].price;
-            console.log(priceTree);
-            let childNodeHTML;
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + value.substr(1);
-            childNodeHTML += "</a>";
-            node.innerHTML = childNodeHTML;
-        }
-        //Adresse input
         if (target.id == "ad") {
-            let node = document.getElementById("adress");
+            let adresse = document.createElement("p");
+            adresse.setAttribute("id", "adress");
+            adresse.innerText = "Adresse: " + target.value;
             adress = target.value;
-            let childNodeHTML;
-            childNodeHTML = "";
-            childNodeHTML += "<a>";
-            childNodeHTML += " " + target.value;
-            childNodeHTML += "</a>";
-            node.innerHTML = childNodeHTML;
+            div.appendChild(adresse);
         }
-        let node = document.getElementById("price");
-        let childNodeHTML;
-        childNodeHTML = "";
-        childNodeHTML += "<a>";
-        childNodeHTML += (priceTree + priceHolder + (priceBalls * numberOfBalls) + (priceLametta * numberOfLametta) + (priceCandle * numberOfCandle) + priceShipping);
-        childNodeHTML += " Euro";
-        childNodeHTML += "</a>";
-        node.innerHTML = childNodeHTML;
+        calcPrice();
+    }
+    function calcPrice() {
+        let checkout = document.getElementById("selectedArticle");
+        let price = 0;
+        console.log(checkout.childNodes);
+        for (let i = 0; i < checkout.childNodes.length; i++) {
+            let article = checkout.childNodes[i];
+            let articlePrice = Number(article.getAttribute("price"));
+            console.log(articlePrice);
+            price += articlePrice;
+            let showPrice = document.createElement("div");
+            showPrice.setAttribute("id", "box");
+            document.getElementById("div").appendChild(showPrice);
+            showPrice.innerText = "Gesamtpreis: " + price.toString() + " Euro";
+        }
     }
     function checkCheckout(_event) {
-        if (adress == "" || priceTree == 0 || priceHolder == 0 || priceBalls == 0 || priceLametta == 0 || priceCandle == 0 || priceShipping == 0 || numberOfBalls == 0 || numberOfLametta == 0 || numberOfCandle == 0) {
+        if (adress == "" || checkTree == 0 || checkHolder == 0 || checkShipping == 0) {
             document.getElementById("missing").innerHTML = "fehlende Angaben";
         }
         else {
