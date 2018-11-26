@@ -1,6 +1,7 @@
 namespace Aufgabe05 {
 
-export interface products {
+
+    export interface products {
         typ: string,
         name: string,
         price: number,
