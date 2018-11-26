@@ -1,13 +1,13 @@
 @charset "ISO-8859-1";
 body {
-	background-Color: #9f2b2e;
-	font-family: 'Ranga', cursive;
-	font-size: 1.3em;
+	background-Color: #F2F2F2;
+	font-family: 'Amatic SC', cursive;
+	font-size: 1.4em;
 }
 
 h1 {
 	margin: 0.3em 0.3em 0.3em 0em;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Pacifico', cursive;
 }
 
 h3 {
@@ -17,21 +17,21 @@ h3 {
 fieldset {
 	width: 300px;
 	border: thin solid black;
-	background-Color: #f2f2f2;
+	background-Color: #ffffff;
 }
 
 legend {
-	font-size: 1.3em;
+	font-size: 1.2em;
 	font-weight: bold;
 }
 
 br {
-	margin: 0.6px;
+	margin: 0.5px;
 }
 
 div {
 	position: absolute;
-	top: 121px;
+	top: 105px;
 	left: 380px;
 	width: 300px;
 	border: thin solid black;
@@ -42,8 +42,8 @@ div {
 
 button {
 	position: absolute;
-	top: 520px;
-	left: 380px;
+	top: 305px;
+	left: 761px;
 }
 
 .text {
@@ -65,4 +65,3 @@ label::after {
 	content: "";
 	display: block;
 }
-
