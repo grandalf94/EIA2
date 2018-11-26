@@ -1,17 +1,17 @@
 @charset "ISO-8859-1";
 body {
 	background-Color: #870c18;
-	font-family: 'Amatic SC', cursive;
+	font-family: 'Ranga', cursive;
 	font-size: 1.2em;
 }
 
 h1 {
 	margin: 0.3em 0.3em 0.3em 0em;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 h3 {
-	margin: 0.3em;
+	margin: 0.5em;
 }
 
 fieldset {
