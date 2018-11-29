@@ -1,0 +1,15 @@
+{
+	"name" : "Godfather Server",
+	"version" : "1.0.0",
+	"description" : "Master Server above all",
+	"author" : "Joel",
+	"main" : "Server.js",
+	"scripts" : {
+		"start" : "node Aufgabe_6/Server.js"
+	},
+	"engines" : {
+		"node" : "8.10.0"
+	},
+	"dependencies" : {
+	}
+}

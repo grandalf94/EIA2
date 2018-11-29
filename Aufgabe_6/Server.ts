@@ -37,7 +37,7 @@ namespace L06_SendData { //eigener Namespace für Datei/Aufgaben -gruppe wird bes
         -> ein IncomingMessage Objekt wird vom http.Server oder vom http.ClientRequest erstellt, das Objekt besteht als das erst Argument in beziehung zum "request" und "response" Event. 
         -> ein ServerResponse Objekt wird intern vom HTTP Server erstellt nicht vom benutzer. Es durchläuft als der zweite Parameter in beziehung zum "request" Event. */
         
-        console.log("I hear voices!"); // Funktion gibt auf Konsole "I hear voices!" aus
+        console.log(_request.url); // Funktion gibt auf Konsole "I hear voices!" aus
 
         _response.setHeader("content-type", "text/html; charset=utf-8"); // Hier wird ein einzelner header Wert für implizierter Header gesetzt. In Klammern ist (Name ; Wert )     
         _response.setHeader("Access-Control-Allow-Origin", "*"); /* Hier wird ein einzelner header Wert für implizierter Header gesetzt. In Klammern ist (Name ; Wert )
