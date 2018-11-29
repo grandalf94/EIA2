@@ -1,7 +1,7 @@
 {
-	"name" : "Godfather Server",
+	"name" : "MiniServer",
 	"version" : "1.0.0",
-	"description" : "Master Server above all",
+	"description" : "Minimal server just bouncing the URL",
 	"author" : "Joel",
 	"main" : "Server.js",
 	"scripts" : {
