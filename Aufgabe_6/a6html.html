@@ -1,34 +1,32 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" media="only screen" href="BestellForm/A6.css" />
-  <!----><script src="BestellForm/A6.js"></script>
-  <script src="BestellForm/A6verkaufer.js"></script><!---->
-  
-  
-  <title>Weihnachtsbaum</title>
+<link rel="stylesheet" type="text/css" href="A6.css">
+<script src="A6verkaufer.js"></script>
+<script src="A6.js"></script>
+<title>Weihnachtsbaum</title>
 </head>
-
 <body>
-<form id="oneandonly" action="https://herokueia2.herokuapp.com/" method="get">
-    <span id= "produkte">
-    <div id="form1">
+<form action="https://herokueia2.herokuapp.com/" method="get">
+<div id="fieldset">
+<legend> Weihnachtsbaum </legend>
+</div>
 
-    </div>
-    </span>
-        
-    <span id= "einkaufswagen">
-    
-    <div id="form2">
-    </div>
-    <fieldset id= "cart">
-            </fieldset>
-   <input id= "bebutton" type="submit" value="Submit">
-    </span>
-    </form>
+<div id="checkout">
+<h3>Checkout</h3>
+<a class="text">Baum:</a><a id="baum"></a><br>
+<a class="text"></a><a id="deko"></a><br>
+<a class="text">Halterung:</a><a id="halterung"></a><br>
+<a class="text">Lieferant:</a><a id="lieferant"></a><br>
+<a class="text">Strasse:</a><a id="strass"></a><br>
+<a class="text">Hausnummer:</a><a id="nummer"></a><br>
+<a class="text">PLZ:</a><a id="postleitzahl"></a><br>
+<a class="text">Ort:</a><a id="ort"></a><br>
+<a class="text">Preis:</a><a id="preis"></a><br>
+<button id="check">Pruefen</button>
+<button id="submit" type="submit">Submit</button>
+
+</div>
+<div id="buttonCheck"></div>
+</form>
 </body>
 </html>

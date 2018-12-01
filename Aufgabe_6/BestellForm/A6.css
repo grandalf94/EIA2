@@ -1,67 +1,49 @@
-@charset "ISO-8859-1";
-body {
-	background-Color: #870c18;
-	font-family: 'Ranga', cursive;
-	font-size: 1.2em;
+#fieldset{
+border:solid black;
+background-color:#F5F5DC;
+float:left;}
+
+select{
+font-size:1em;}
+
+body{
+background-color:grey}
+
+legend{
+background-color:#F5F5DC;
+border:solid black}
+
+div br{
+padding-top:2em;}
+
+h3{
+padding:0em;
+margin:0.2em;
+text-decoration:underline;}
+
+div{
+background-color:#F5F5DC;
+margin-left:2em;
+width:20em;
+border: solid black;
+margin-top:1em;
+float:left;}
+
+input:invalid {
+	background: white;
+}
+input:valid {
+	background: white;
+}
+input:required {
+	background: white;
 }
 
-h1 {
-	margin: 0.3em 0.3em 0.3em 0em;
-	font-family: 'Ubuntu', sans-serif;
-}
+#preis{
+font-size:2em;
+font-style:italic;}
 
-h3 {
-	margin: 0.5em;
-}
-
-fieldset {
-	width: 300px;
-	border: thin solid black;
-	background-Color: #ffffff;
-}
-
-legend {
-	font-size: 1.2em;
-	font-weight: bold;
-}
-
-br {
-	margin: 0.5px;
-}
-
-div {
-	position: absolute;
-	top: 105px;
-	left: 380px;
-	width: 300px;
-	border: thin solid black;
-	padding-bottom: 10px;
-	padding-left: 15px;
-	background-Color: #ffffff;
-}
-
-button {
-	position: absolute;
-	top: 305px;
-	left: 761px;
-}
-
-.text {
-	font-size: 1.2em;
-}
-
-#missing {
-	position: absolute;
-	top: 550px;
-	left: 380px;
-	width: 300px;
-	background-Color: #F2F2F2;
-	border: none;
-	padding-left: 0px;
-	color: red;
-}
-
-label::after {
-	content: "";
-	display: block;
-}
+.text{
+font-size:1.2em;
+text-decoration:underline;
+font-style:italic;}

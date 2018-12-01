@@ -1,12 +1,10 @@
 var Aufgabe06;
 (function (Aufgabe06) {
-    Aufgabe06.assoProducts = {
-        "treeSpecies": [{ typ: "Baum", name: "Tanne", price: 55 }, { typ: "Baum", name: "Kiefer", price: 60 }, { typ: "Baum", name: "Plastik Tanne", price: 30 }],
-        "holder": [{ typ: "Halterung", name: "Keine", price: 0 }, { typ: "Halterung", name: "Topf", price: 10 }, { typ: "Halterung", name: "Halterung", price: 30 }],
-        "christmasBalls": [{ typ: "Kugeln", name: "Handgranaten", price: 150 }, { typ: "Kugeln", name: "Pferde�pfel", price: 5 }, { typ: "Kugeln", name: "Fidget Spinner", price: 1 }],
-        "lametta": [{ typ: "Lametta", name: "Luftschlangen", price: 5 }, { typ: "Lametta", name: "Klopapier", price: 3 }, { typ: "Lametta", name: "Stacheldraht", price: 30 }, { typ: "Lametta", name: "Lose Kabel", price: 10 }],
-        "candleType": [{ typ: "Kerzen", name: "Laternen", price: 3 }, { typ: "Kerzen", name: "Fackeln", price: 5 }],
-        "shipment": [{ typ: "Lieferoptionen", name: "DPD", price: 20 }, { typ: "Lieferoptionen", name: "DHL", price: 25 }, { typ: "Lieferoptionen", name: "Helikopter", price: 7000 }]
-    };
+    Aufgabe06.tree = [{ name: "", price: 0 }, { name: "Nordmantanne (70 Euro)", price: 70 }, { name: "Fichte (60 Euro)", price: 60 }, { name: "Plastiktanne (30 Euro)", price: 30 }];
+    Aufgabe06.christmasBall = [{ name: "Rote Glassgkugel", price: 1 }, { name: "Goldene Glasskugel", price: 1.5 }, { name: "Gruene Glasskugel", price: 1.2 }];
+    Aufgabe06.lametta = [{ name: "Lametta Gold 50cm", price: 3 }, { name: "Lametta Silber 50cm", price: 2 }, { name: "Lametta Rot 50cm ", price: 3 }];
+    Aufgabe06.holder = [{ name: "Keine Halterung", price: 0 }, { name: "Halterung Rot (20 Euro)", price: 20 }, { name: "Halterung Gruen (22 Euro)", price: 22 }];
+    Aufgabe06.shipment = [{ name: "", price: 0 }, { name: "UPS (15 Euro)", price: 15 }, { name: "DHL (12 Euro)", price: 12 }, { name: "Hermes (14 Euro)", price: 14 }];
+    Aufgabe06.candle = [{ name: "Rote Kerzen", price: 0.8 }, { name: "Kerzen elektrisch", price: 1.5 }, { name: "Goldene Kerzen", price: 1 }];
 })(Aufgabe06 || (Aufgabe06 = {}));
 //# sourceMappingURL=A6verkaufer.js.map

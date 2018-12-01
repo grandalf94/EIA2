@@ -1,185 +1,224 @@
 namespace Aufgabe06 {
 
+   document.addEventListener("DOMContentLoaded", writeHTML);
     document.addEventListener("DOMContentLoaded", init);
-    document.addEventListener("DOMContentLoaded", fillFieldset2);
-    document.addEventListener("DOMContentLoaded", changeListener);
 
-    function init(_event: Event): void {
-        console.log(assoProducts);
-        displayAssoArray(assoProducts);
-    };
+    let treePrice: number = 0;
+    let ballPrice: number = 0;
+    let candlePrice: number = 0;
+    let lamettaPrice: number = 0;
+    let holderPrice: number = 0;
+    let shipmentPrice: number = 0;
+    let ort: string = "";
+    let strass: string = "";
+    let nummer: string = "";
+    let postleitzahl: string = "";
 
-    function displayAssoArray(_assoArray: assoArray): void {
 
-        for (let key in _assoArray) {
-            let value: products[] = _assoArray[key];
-            if (key == "treeSpecies" || key == "holder" || key == "shipment") { for (let i: number = 0; i < value.length; i++) fillFieldsetCheck(value[i], i, key); }
-            if (key != "treeSpecies" && key != "holder" && key != "shipment") { for (let i: number = 0; i < value.length; i++) fillFieldset(value[i], i, key); }
+    function writeHTML() {
 
-        }
-    }
-
-    //Change Listener
-    function changeListener(_event: Event): void {
-        let fieldset: HTMLElement = document.getElementById("fieldset");
-
-        fieldset.addEventListener("change", handleChange);
-
-    }
-
-    let adress: string = "";
-    let checkTree: number = 0;
-    let checkHolder: number = 0;
-    let checkShipping: number = 0;
-
-    function fillFieldsetCheck(_products: products, i: number, key: string): void {
         let node: HTMLElement = document.getElementById("fieldset");
-        document.getElementById("button").addEventListener("click", checkCheckout);
         let childNodeHTML: string;
-        //Waren
-        if (i == 0) {
-            childNodeHTML = "<h3>" + _products.typ + "</h3>";
-            childNodeHTML += "<hr>";
-            childNodeHTML += "<section id='" + key + "'>";
-            childNodeHTML += "</section>";
-            node.innerHTML += childNodeHTML;
-        }
 
-        let radio: HTMLElement = document.createElement("input");
-        radio.setAttribute("type", "radio");
-        radio.setAttribute("name", _products.typ);
-        radio.setAttribute("value", "0");
-        radio.setAttribute("title", _products.name);
-        radio.setAttribute("price", _products.price.toFixed());
-        radio.setAttribute("item", _products.typ);
-        radio.setAttribute("id", _products.name);
-        document.getElementById(key).appendChild(radio);
-        let radioLabel: HTMLElement = document.createElement("label");
-        radioLabel.setAttribute("for", _products.name);
-        radioLabel.innerText = _products.name + " " + _products.price.toFixed() + " Euro";
-        document.getElementById(key).appendChild(radioLabel);
+        childNodeHTML = "<h3>Baeume</h3>";
+        childNodeHTML += "<select name='Select' id='tree'>";
+        for (let i: number = 0; i < tree.length; i++) {
+            childNodeHTML += "<option value='" + i + tree[i].name + "'>" + tree[i].name + "</option>";
+        }
+        childNodeHTML += "</select>";
+        childNodeHTML += "<br>";
+
+        childNodeHTML += "<h3>Glasskugeln</h3>";
+
+        for (let i: number = 0; i < christmasBall.length; i++) {
+            childNodeHTML += christmasBall[i].name;
+            childNodeHTML += " <input type='number' id='numberBalls" + i + "' name='Stepper' step='1' min='0' max='30' value='0' title='" + christmasBall[i].name + "' price='" + christmasBall[i].price + "'/>";
+            childNodeHTML += "<br>";
+            continue
+        }
+        //Kerzen
+        childNodeHTML += "<h3>Kerzen</h3>";
+        for (let i: number = 0; i < candle.length; i++) {
+            childNodeHTML += candle[i].name;
+            childNodeHTML += " <input type='number' id='numberCandles" + i + "' name='Stepper' step='1' min='0' max='30' value='0' title='" + candle[i].name + "' price='" + candle[i].price + "' />";
+            childNodeHTML += "<br>";
+            continue
+        }
+        childNodeHTML += "<h3>Lametta</h3>";
+        for (let i: number = 0; i < lametta.length; i++) {
+            childNodeHTML += lametta[i].name;
+            childNodeHTML += " <input type='number' id='numberLametta" + i + "' name='Stepper' step='1' min='0' max='30' value='0' title='" + lametta[i].name + "' price=" + lametta[i].price + " />"; childNodeHTML += "<br>";
+            continue
+        }
+        childNodeHTML += "<h3>Halterung</h3>";
+        childNodeHTML += "<select name='Select' id='holder'>";
+        for (let i: number = 0; i < holder.length; i++) {
+            childNodeHTML += "<option value='" + i + holder[i].name + "'>" + holder[i].name + "</option>";
+        }
+        childNodeHTML += "</select>";
+        childNodeHTML += "<br>";
+
+        childNodeHTML += "<h3>Lieferant</h3>";
+        childNodeHTML += "<select name='Select' id='shipment'>";
+        for (let i: number = 0; i < shipment.length; i++) {
+            childNodeHTML += "<option value='" + i + shipment[i].name + "'>" + shipment[i].name + "</option>";
+        }
+        childNodeHTML += "</select>";
+        childNodeHTML += "<br>";
+
+        childNodeHTML += "<h3>Adresse</h3>";
+        childNodeHTML += "<input id='strasse' type='text' name='Text' placeholder='Strasse' required/>"
+        childNodeHTML += "<input id='hausnummer' type='text' name='Text' placeholder='Hausnummer' required/>"
+        childNodeHTML += "<br>";
+        childNodeHTML += "<input id='plz' type='text' name='Pattern' pattern='[0-9]{5}' placeholder='PLZ' required/>"
+        childNodeHTML += "<input id='place' type='text' name='Text' placeholder='Ort' required/>"
+        childNodeHTML += "<br>";
+        node.innerHTML += childNodeHTML
     }
 
-    function fillFieldset(_products: products, i: number, key: string): void {
-        let node: HTMLElement = document.getElementById("fieldset");
-        document.getElementById("button").addEventListener("click", checkCheckout);
-        let childNodeHTML: string;
-        //Waren
-        if (i == 0) {
-            childNodeHTML = "<h3>" + _products.typ + "</h3>";
-            childNodeHTML += "<hr>";
-            childNodeHTML += "<section id='" + key + "'>";
-            childNodeHTML += "</section>";
-            node.innerHTML += childNodeHTML;
-        }
-
-        let option: HTMLElement = document.createElement("p");
-        option.setAttribute("value", _products.name + " " + _products.price + " Euro");
-        option.innerText = _products.name + " " + _products.price + " Euro";
-        document.getElementById(key).appendChild(option);
-        let steper: HTMLElement = document.createElement("input");
-        steper.setAttribute("type", "number");
-        steper.setAttribute("name", " Stepper");
-        steper.setAttribute("step", "1");
-        steper.setAttribute("min", "0");
-        steper.setAttribute("max", "50");
-        steper.setAttribute("value", "0");
-        steper.setAttribute("item", _products.typ);
-        steper.setAttribute("title", _products.name);
-        steper.setAttribute("price", _products.price.toFixed());
-        document.getElementById(key).appendChild(steper);
-
-    }
-
-    //Adresse
-    function fillFieldset2(): void {
-        document.getElementById("button").addEventListener("click", checkCheckout);
-        let fieldset: HTMLElement = document.getElementById("fieldset2");
-
+    function init(_event: Event) {
+        let fieldset: HTMLElement = document.getElementById("fieldset")
         fieldset.addEventListener("change", handleChange);
-
-        let input: HTMLElement = document.createElement("input");
-        input.setAttribute("id", "ad");
-        document.getElementById("fieldset2").appendChild(input);
+        document.getElementById("check").addEventListener("click", checkInputs);
     }
 
-    function handleChange(_event: Event): void {
+    function handleChange(_event: Event) {
+
         let target: HTMLInputElement = <HTMLInputElement>_event.target;
-        let articles: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input");
-        let div: HTMLElement = document.getElementById("div");
-        let section: HTMLElement = document.getElementById("selectedArticle");
-        section.innerHTML = "";
+        console.log(target.id);
+        let articles: NodeListOf<HTMLInputElement> = document.getElementsByTagName("input")
+        let node: HTMLElement = document.getElementById("deko");
+        node.innerHTML = "";
 
-        for (let i: number = 0; i < articles.length - 1; i++) {
+        for (let i: number = 0; i < articles.length; i++) {
             let article: HTMLInputElement = articles[i];
-            let section: HTMLElement = document.getElementById("selectedArticle");
-            let p: HTMLElement = document.createElement("p");
-            let articleTyp: string = article.getAttribute("item");
-            let articleName: string = article.getAttribute("title");
-            let articlePrice: number = parseInt(article.getAttribute("price"));
-            if (article.type == "radio") {
-                if (article.checked == true) {
-                    article.setAttribute("value", "1");
-                    if (target.name == "Baum") {
-                        checkTree = 1;
-                    }
-                    if (target.name == "Halterung") {
-                        checkHolder = 1;
-                    }
-                    if (target.name == "Lieferoptionen") {
-                        checkShipping = 1;
-                    }
-
-                }
-                else if (article.checked == false) {
-                    article.setAttribute("value", "0");
+            let value: number = parseInt(article.value)
+            if (article.name == "Stepper") {
+                let node: HTMLElement = document.getElementById("deko");
+                let DOMValue: string = target.value;
+                target.setAttribute("value", DOMValue)
+                let value: number = parseInt(article.getAttribute("value"))
+                let name: string = article.getAttribute("title");
+                let price: string = article.getAttribute("price");
+                let childNodeHTML: string;
+                if (value > 0) {
+                    childNodeHTML = "";
+                    childNodeHTML += "<a price='"+(Number(price) * value)+"'>";
+                    childNodeHTML += " " + value + name +" "+ (Number(price) * value) + " Euro";
+                    childNodeHTML += "</a>";
+                    node.innerHTML += childNodeHTML;
                 }
             }
-
-            let domAmount: string = target.value;
-            target.setAttribute("value", domAmount);
-            let articleAmount: number = parseInt(article.getAttribute("value"));
-            let price: number = articlePrice * articleAmount;
-            p.setAttribute("price", price.toString());
-            if (articleAmount > 0) {
-                p.innerText += articleTyp + ": " + articleAmount + " " + articleName + " " + price + " Euro";
-            }
-
-            section.appendChild(p);
         }
 
-        if (target.id == "ad") {
-            let adresse: HTMLElement = document.createElement("p");
-            adresse.setAttribute("id", "adress");
-            adresse.innerText = "Adresse: " + target.value;
-            adress = target.value;
-            div.appendChild(adresse);
+        if (target.id == "tree") {
+            let node: HTMLElement = document.getElementById("baum");
+            let value: string = target.value;
+            let priceIndex: number = parseInt(value.substr(0, 1));
+            let childNodeHTML: string;
+            treePrice = tree[priceIndex].price;
+            childNodeHTML = "";
+            childNodeHTML += "<a>";
+            childNodeHTML += " " + value.substr(1);
+            childNodeHTML += "</a>";
+            node.innerHTML = childNodeHTML;
         }
-        calcPrice();
+
+        if (target.id == "holder") {
+            let node: HTMLElement = document.getElementById("halterung");
+            let value: string = target.value;
+            let priceIndex: number = parseInt(value.substr(0, 1));
+            let childNodeHTML: string;
+            holderPrice = holder[priceIndex].price;
+            childNodeHTML = "";
+            childNodeHTML += "<a>";
+            childNodeHTML += " " + value.substr(1);
+            childNodeHTML += "</a>";
+            node.innerHTML = childNodeHTML;
+        }
+        if (target.id == "shipment") {
+            let node: HTMLElement = document.getElementById("lieferant");
+            let value: string = target.value;
+            let priceIndex: number = parseInt(value.substr(0, 1));
+            let childNodeHTML: string;
+            shipmentPrice = shipment[priceIndex].price;
+            childNodeHTML = "";
+            childNodeHTML += "<a>";
+            childNodeHTML += " " + value.substr(1);
+            childNodeHTML += "</a>";
+            node.innerHTML = childNodeHTML;
+        }
+
+        if (target.id == "strasse") {
+            let node: HTMLElement = document.getElementById("strass");
+            strass = target.value;
+            let childNodeHTML: string;
+            childNodeHTML = "";
+            childNodeHTML += "<a>";
+            childNodeHTML += " " + target.value;
+            childNodeHTML += "</a>";
+            node.innerHTML = childNodeHTML;
+        }
+
+        if (target.id == "hausnummer") {
+            let node: HTMLElement = document.getElementById("nummer");
+            nummer = target.value;
+            let childNodeHTML: string;
+            childNodeHTML = "";
+            childNodeHTML += "<a>";
+            childNodeHTML += " " + target.value;
+            childNodeHTML += "</a>";
+            node.innerHTML = childNodeHTML;
+        }
+
+        if (target.id == "plz") {
+            let node: HTMLElement = document.getElementById("postleitzahl");
+            postleitzahl = target.value;
+            let childNodeHTML: string;
+            childNodeHTML = "";
+            childNodeHTML += "<a>";
+            childNodeHTML += " " + target.value;
+            childNodeHTML += "</a>";
+            node.innerHTML = childNodeHTML;
+
+        }
+
+        if (target.id == "place") {
+            let node: HTMLElement = document.getElementById("ort");
+            ort = target.value;
+            let childNodeHTML: string;
+            childNodeHTML = "";
+            childNodeHTML += "<a>";
+            childNodeHTML += " " + target.value;
+            childNodeHTML += "</a>";
+            node.innerHTML = childNodeHTML;
+            
+        }
+        price()
     }
-
-    function calcPrice(): void {
-        let checkout: HTMLElement = document.getElementById("selectedArticle");
-        let price: number = 0;
+    
+    function price() {
+        let checkout:HTMLElement=document.getElementById("deko");
+        let price:number=0;
         console.log(checkout.childNodes);
-        for (let i: number = 0; i < checkout.childNodes.length; i++) {
-            let article: any = checkout.childNodes[i]
+        for (let i:number=0;i<checkout.childNodes.length;i++){
+            let article:any=checkout.childNodes[i];
             let articlePrice: number = Number(article.getAttribute("price"));
+            price+=articlePrice;
             console.log(articlePrice);
-            price += articlePrice;
-            let showPrice: HTMLElement = document.createElement("div");
-            showPrice.setAttribute("id", "box");
-            document.getElementById("div").appendChild(showPrice);
-            showPrice.innerText = "Gesamtpreis: " + price.toString() + " Euro";
-        }
+            }
+        let HTML: string;
+        let node: HTMLElement = document.getElementById("preis");
+        HTML = " ";
+        HTML += (treePrice + holderPrice + shipmentPrice+price);
+        HTML += " Euro";
+        node.innerHTML = HTML
     }
-
-    function checkCheckout(_event: Event): void {
-        if (adress == "" || checkTree == 0 || checkHolder == 0 || checkShipping == 0) {
-            document.getElementById("missing").innerHTML = "fehlende Angaben";
-        }
+    function checkInputs() {
+        if (treePrice == 0 || holderPrice == 0 || shipmentPrice == 0 || ort == "" || nummer == "" || postleitzahl == "" || strass == "")
+        { document.getElementById("buttonCheck").innerHTML = "Fehlende Angaben!"; }
         else {
-            document.getElementById("missing").innerHTML = "";
+            document.getElementById("buttonCheck").innerHTML = "";
         }
     }
 }
