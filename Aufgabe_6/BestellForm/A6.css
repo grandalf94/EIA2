@@ -1,16 +1,16 @@
 #fieldset{
 border:solid black;
-background-color:#F5F5DC;
+background-color:#c03e05;
 float:left;}
 
 select{
 font-size:1em;}
 
 body{
-background-color:grey}
+background-color:#8d5749}
 
 legend{
-background-color:#F5F5DC;
+background-color:#a82917;
 border:solid black}
 
 div br{
