@@ -1,6 +1,6 @@
 namespace Aufgabe06 {
 
-   document.addEventListener("DOMContentLoaded", writeHTML);
+document.addEventListener("DOMContentLoaded", writeHTML);
     document.addEventListener("DOMContentLoaded", init);
 
     let treePrice: number = 0;
