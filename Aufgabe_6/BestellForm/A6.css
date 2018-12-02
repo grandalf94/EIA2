@@ -19,15 +19,20 @@ padding-top:5em;}
 h3{
 padding:0em;
 margin:0.2em;
-text-decoration:underline;}
+text-decoration:underline;
+font-family: 'Poppins', sans-serif;
+}
+
+
 
 div{
-background-color:#8d5749;
-margin-left:2em;
+background-color:#c03e05;
+margin-left:10em;
 width:20em;
 border: solid black;
 margin-top:1em;
-float:left;}
+float:left;
+}
 
 input:invalid {
 	background: white;
@@ -46,4 +51,6 @@ font-style:italic;}
 .text{
 font-size:1.2em;
 text-decoration:underline;
-font-style:italic;}
+font-style:italic;
+font-family: 'Muli', sans-serif;
+}
