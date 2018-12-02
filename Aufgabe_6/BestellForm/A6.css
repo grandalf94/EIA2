@@ -1,17 +1,22 @@
 #fieldset{
 border:solid black;
 background-color:#c03e05;
-float:left;}
+float:left;
+}
 
 select{
-font-size:1em;}
+font-size:1em;
+}
 
 body{
-background-color:#8d5749}
+background-color:#8d5749;
+}
 
 legend{
 background-color:#a82917;
-border:solid black}
+border:solid black;
+font-family: 'Poppins', sans-serif;
+}
 
 div br{
 padding-top:5em;}
@@ -36,21 +41,24 @@ float:left;
 
 input:invalid {
 	background: white;
+	font-family: 'Muli', sans-serif;
 }
 input:valid {
 	background: white;
+	font-family: 'Muli', sans-serif;
 }
 input:required {
 	background: white;
+	font-family: 'Muli', sans-serif;
 }
 
 #preis{
 font-size:2em;
-font-style:italic;}
+
+}
 
 .text{
 font-size:1.2em;
 text-decoration:underline;
-font-style:italic;
 font-family: 'Muli', sans-serif;
 }
