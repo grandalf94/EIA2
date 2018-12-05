@@ -1,0 +1,66 @@
+#fieldset{
+border:solid black;
+background-color:#c03e05;
+float:left;
+}
+
+select{
+font-size:1em;
+}
+
+body{
+background-color:#8d5749;
+}
+
+legend{
+background-color:#a82917;
+border:solid black;
+font-family: 'Poppins', sans-serif;
+font-size: 23px;
+}
+
+div br{
+padding-top:5em;}
+
+h3{
+padding:0em;
+margin:0.2em;
+text-decoration:underline;
+font-family: 'Poppins', sans-serif;
+}
+
+
+
+div{
+background-color:#c03e05;
+margin-left:10em;
+width:20em;
+border: solid black;
+margin-top:1em;
+float:left;
+}
+
+input:invalid {
+	background: white;
+	font-family: 'Muli', sans-serif;
+}
+input:valid {
+	background: white;
+	font-family: 'Muli', sans-serif;
+}
+input:required {
+	background: white;
+	font-family: 'Muli', sans-serif;
+}
+
+#preis{
+font-size:2em;
+
+}
+
+.text{
+font-size:1.2em;
+text-decoration:underline;
+font-family: 'Muli', sans-serif;
+margin-left: 1em;
+}
