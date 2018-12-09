@@ -1,5 +1,3 @@
-namespace Nodee{
-
 // Type definitions for Node.js v7.x
 // Project: http://nodejs.org/
 // Definitions by: Microsoft TypeScript <http://typescriptlang.org>, DefinitelyTyped <https://github.com/DefinitelyTyped/DefinitelyTyped>
@@ -4175,5 +4173,4 @@ declare module "_debugger" {
     export var Client: {
         new (): ClientInstance
     }
-}
 }
