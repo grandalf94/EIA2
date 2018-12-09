@@ -1,4 +1,4 @@
-namespace L06_SendData {
+namespace L07_SendData {
     window.addEventListener("load", init);
     let address: string = "http://localhost:8100";
     //let address: string = "https://eia2-nodetest.herokuapp.com";
