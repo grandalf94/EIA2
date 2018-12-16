@@ -12,8 +12,8 @@ let students;
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
     //    databaseURL = "mongodb://username:password@hostname:port/database";
-    databaseURL = "mongodb://testuser:testpw1@ds129156.mlab.com:29156/eia2";
-    databaseName = "eia2";
+    databaseURL = "mongodb://Joel:testpw1&a=ds113482.mlab.com:13482/eia";
+    databaseName = "students";
 }
 // try to connect to database, then activate callback "handleConnect" 
 Mongo.MongoClient.connect(databaseURL, handleConnect);
