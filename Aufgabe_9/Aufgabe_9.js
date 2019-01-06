@@ -22,7 +22,7 @@ var aufgabe_9;
         crc2.lineTo(0, 0);
         crc2.lineTo(0, 0);
         crc2.closePath();
-        crc2.fillStyle = "#81BEF7";
+        crc2.fillStyle = "#A9BCF5";
         crc2.fill();
     }
     //Wolken
@@ -37,7 +37,7 @@ var aufgabe_9;
         crc2.arc(300, 80, 18, 0, 2 * Math.PI);
         crc2.arc(315, 85, 15, 0, 2 * Math.PI);
         crc2.arc(285, 85, 15, 0, 2 * Math.PI);
-        crc2.fillStyle = "#ffffff";
+        crc2.fillStyle = "#FAFAFA";
         crc2.fill();
         crc2.beginPath();
         crc2.arc(120, 150, 18, 0, 2 * Math.PI);
@@ -120,7 +120,7 @@ var aufgabe_9;
     function createSun() {
         crc2.beginPath();
         crc2.arc(65, 70, 50, 0, 2 * Math.PI);
-        crc2.fillStyle = "#ffd700";
+        crc2.fillStyle = "#F3F781";
         crc2.fill();
     }
     //Schneeflocken
