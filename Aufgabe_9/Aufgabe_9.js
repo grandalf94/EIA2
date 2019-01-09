@@ -7,12 +7,16 @@ var aufgabe_9;
         crc2 = canvas.getContext("2d");
         createSky();
         createCloud();
-        createTrees();
         createSun();
         createSnow();
         createSleigh();
         createPeople();
         console.log("Canvas started");
+        for (let i = 0; i < 15; i++) {
+            let x = Math.floor(Math.random() * crc2.canvas.width);
+            let y = Math.floor(Math.random() * (310 - 410) + crc2.canvas.height);
+            createTrees(x, y);
+        }
     }
     // Himmel
     function createSky() {
@@ -47,74 +51,16 @@ var aufgabe_9;
         crc2.fill();
     }
     // B�ume
-    function createTrees() {
-        crc2.fillStyle = "#8b5a2b";
-        crc2.fillRect(510, 555, 25, 45);
+    function createTrees(_x, _y) {
         crc2.beginPath();
-        crc2.moveTo(525, 450);
-        crc2.lineTo(575, 560);
-        crc2.lineTo(475, 560);
+        crc2.moveTo(_x, _y - 40);
+        crc2.lineTo(_x - 10, _y);
+        crc2.lineTo(_x + 10, _y);
         crc2.closePath();
-        crc2.fillStyle = "#0B3B24";
+        crc2.fillStyle = "#008000";
+        crc2.strokeStyle = "#008000";
         crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(525, 430);
-        crc2.lineTo(575, 530);
-        crc2.lineTo(475, 530);
-        crc2.closePath();
-        crc2.fillStyle = "#0B3B24";
-        crc2.fill();
-        // 2. Baum
-        crc2.fillStyle = "#8b5a2b";
-        crc2.fillRect(785, 455, 25, 45);
-        crc2.beginPath();
-        crc2.moveTo(800, 350);
-        crc2.lineTo(850, 460);
-        crc2.lineTo(750, 460);
-        crc2.closePath();
-        crc2.fillStyle = "#0B3B24";
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(800, 320);
-        crc2.lineTo(850, 430);
-        crc2.lineTo(750, 430);
-        crc2.closePath();
-        crc2.fillStyle = "#0B3B24";
-        crc2.fill();
-        // 3.Baum
-        crc2.fillStyle = "#8b5a2b";
-        crc2.fillRect(685, 555, 25, 45);
-        crc2.beginPath();
-        crc2.moveTo(700, 450);
-        crc2.lineTo(750, 560);
-        crc2.lineTo(650, 560);
-        crc2.closePath();
-        crc2.fillStyle = "#0B3B24";
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(700, 420);
-        crc2.lineTo(750, 530);
-        crc2.lineTo(650, 530);
-        crc2.closePath();
-        crc2.fillStyle = "#0B3B24";
-        crc2.fill();
-        // 4. Baum
-        crc2.fillStyle = "#8b5a2b";
-        crc2.fillRect(285, 755, 25, 45);
-        crc2.beginPath();
-        crc2.moveTo(300, 650);
-        crc2.lineTo(350, 760);
-        crc2.lineTo(250, 760);
-        crc2.closePath();
-        crc2.fillStyle = "#0B3B24";
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(300, 620);
-        crc2.lineTo(350, 730);
-        crc2.lineTo(350, 730);
-        crc2.closePath();
-        crc2.fillStyle = "#0B3B24";
-        crc2.fill();
+        crc2.stroke();
     }
     //Sonne
     function createSun() {
