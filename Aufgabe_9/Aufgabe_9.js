@@ -3,15 +3,19 @@ var aufgabe_9;
     window.addEventListener("load", init);
     let crc2;
     function init(_event) {
+        console.log("Canvas started");
         let canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
+        /* function init(_event: Event): void
+           let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
+           crc2 = canvas.getContext("2d");*/
+        console.log(crc2);
         createSky();
         createCloud();
         createSun();
         createSnow();
         createSleigh();
         createPeople();
-        console.log("Canvas started");
         for (let i = 0; i < 15; i++) {
             let x = Math.floor(Math.random() * crc2.canvas.width);
             let y = Math.floor(Math.random() * (310 - 410) + crc2.canvas.height);

@@ -2,25 +2,23 @@ namespace aufgabe_9 {
    window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
 
-
-    function init(_event: Event): void {
+     function init(_event: Event): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
 
-   
-    createSky();
-    createCloud();
-    createSun();
-    createSnow();
-    createSleigh();
-    createPeople();
-            console.log("Canvas started");
+
+     createSky();
+     createCloud();
+     createSun();
+     gernerateTrees();
+     gernerateTrees2();
+     createSnow();
+     createSleigh();
+     createPeople();
+           
+     console.log("Canvas started");
         
-        for (let i: number = 0; i < 15; i++) {
-            let x: number = Math.floor(Math.random() * crc2.canvas.width);
-            let y: number = Math.floor(Math.random() * (310 - 410) + crc2.canvas.height);
-            createTrees(x, y);
-}
+    
     }
    
 
@@ -73,17 +71,73 @@ namespace aufgabe_9 {
     
     // Bäume
  
-     function createTrees(_x: number, _y: number): void {
+    function gernerateTrees(): void {
+
+
+        for (let i: number = 0; i < 8; i++) {
+            let x: number = 40 + Math.random() * 200;
+            let y: number = 800 + Math.random() * 200;
+            drawTrees(x, y);
+        }
+    }
+
+
+    function drawTrees(_x: number, _y: number): void {
+
+
         crc2.beginPath();
-        crc2.moveTo(_x, _y - 40);
-        crc2.lineTo(_x - 10, _y);
-        crc2.lineTo(_x + 10, _y);
+        crc2.moveTo(_x - 10, _y + 70);
+        crc2.lineTo(_x + 10, _y + 70);
+
+        crc2.lineTo(_x + 7, _y - 0);
         crc2.closePath();
 
-        crc2.fillStyle = "#008000";
-        crc2.strokeStyle = "#008000";
+        crc2.fillStyle = "#612A05";
         crc2.fill();
-        crc2.stroke();
+
+        crc2.beginPath();
+        crc2.moveTo(_x - 30, _y + 50);
+        crc2.lineTo(_x, _y - 20);
+        crc2.lineTo(_x + 30, _y + 50);
+        crc2.closePath();
+
+        crc2.fillStyle = "#018A0E";
+        crc2.fill();
+    }
+
+    function gernerateTrees2(): void {
+
+
+        for (let i: number = 0; i < 4; i++) {
+            let x: number = 550 + Math.random() * 150;
+            let y: number = 600 + Math.random() * 150;
+            drawTrees2(x, y);
+        }
+    }
+
+
+    function drawTrees2(_x: number, _y: number): void {
+
+
+        crc2.beginPath();
+        crc2.moveTo(_x - 10, _y + 70);
+        crc2.lineTo(_x + 10, _y + 70);
+
+        crc2.lineTo(_x + 7, _y - 0);
+        crc2.closePath();
+
+        crc2.fillStyle = "#612A05";
+        crc2.fill();
+
+        crc2.beginPath();
+        crc2.moveTo(_x - 30, _y + 50);
+        crc2.lineTo(_x, _y - 20);
+        crc2.lineTo(_x + 30, _y + 50);
+        crc2.closePath();
+
+        crc2.fillStyle = "#018A0E";
+        crc2.fill();
+}
 }
     
     //Sonne
