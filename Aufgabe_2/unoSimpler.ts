@@ -4,8 +4,10 @@ Matrikel: 259546
 Datum: 28.10.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. 
 Er wurde nicht kopiert und auch nicht diktiert.*/
-namespace unoSimple{
+namespace UnoSimple{
+     document.addEventListener("DOMContentLoaded", input);
     interface Unocard {
+        
         color: string;
         value: string;
     }
@@ -26,7 +28,7 @@ namespace unoSimple{
 
     let handcards: Unocard[] = [];
 
-    function Eingabe(): void {
+    function input(): void {
         var kartenanzahl: string = prompt("Kartenanzahl");
         let n: number = parseInt(kartenanzahl);
 
@@ -36,14 +38,12 @@ namespace unoSimple{
             cards.splice(r, 1);
         }
 
-        for (let b: number = 0; b < handcards.length; b++) {
+        for (let b: number = 0; b < handcards.length; b++) { /** function displaycards **/
             let div: HTMLElement = document.createElement("div");
             document.getElementById("Handkarten").appendChild(div);
             div.innerHTML = handcards[b].value;
             div.classList.add("Handkarten");
             div.classList.add(handcards[b].color);
-        }
-        
+        }   
     }
-    document.addEventListener("DOMContentLoaded", Eingabe);
 }

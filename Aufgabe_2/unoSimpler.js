@@ -4,8 +4,9 @@ Matrikel: 259546
 Datum: 28.10.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe.
 Er wurde nicht kopiert und auch nicht diktiert.*/
-var unoSimple;
-(function (unoSimple) {
+var UnoSimple;
+(function (UnoSimple) {
+    document.addEventListener("DOMContentLoaded", input);
     let colors = ["red", "blue", "green", "yellow"];
     let values = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "+2", "X", "<=>"];
     let cards = [{ color: "red", value: "0" }, { color: "blue", value: "0" }, { color: "green", value: "0" }, { color: "yellow", value: "0" }, { color: "black", value: "+4" }, { color: "black", value: "+4" }, { color: "black", value: "+4" }, { color: "black", value: "+4" }, { color: "black", value: "FW" }, { color: "black", value: "FW" }, { color: "black", value: "FW" }, { color: "black", value: "FW" }];
@@ -19,7 +20,7 @@ var unoSimple;
     }
     console.log(cards);
     let handcards = [];
-    function Eingabe() {
+    function input() {
         var kartenanzahl = prompt("Kartenanzahl");
         let n = parseInt(kartenanzahl);
         for (let anz = n; anz > 0; anz--) {
@@ -35,6 +36,5 @@ var unoSimple;
             div.classList.add(handcards[b].color);
         }
     }
-    document.addEventListener("DOMContentLoaded", Eingabe);
-})(unoSimple || (unoSimple = {}));
+})(UnoSimple || (UnoSimple = {}));
 //# sourceMappingURL=unoSimpler.js.map
