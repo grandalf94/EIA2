@@ -3,24 +3,17 @@ var aufgabe_9;
     window.addEventListener("load", init);
     let crc2;
     function init(_event) {
-        console.log("Canvas started");
         let canvas = document.getElementsByTagName("canvas")[0];
         crc2 = canvas.getContext("2d");
-        /* function init(_event: Event): void
-           let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
-           crc2 = canvas.getContext("2d");*/
-        console.log(crc2);
         createSky();
         createCloud();
         createSun();
+        gernerateTrees();
+        gernerateTrees2();
         createSnow();
         createSleigh();
         createPeople();
-        for (let i = 0; i < 15; i++) {
-            let x = Math.floor(Math.random() * crc2.canvas.width);
-            let y = Math.floor(Math.random() * (310 - 410) + crc2.canvas.height);
-            createTrees(x, y);
-        }
+        console.log("Canvas started");
     }
     // Himmel
     function createSky() {
@@ -55,16 +48,51 @@ var aufgabe_9;
         crc2.fill();
     }
     // B�ume
-    function createTrees(_x, _y) {
+    function gernerateTrees() {
+        for (let i = 0; i < 8; i++) {
+            let x = 40 + Math.random() * 200;
+            let y = 800 + Math.random() * 200;
+            drawTrees(x, y);
+        }
+    }
+    function drawTrees(_x, _y) {
         crc2.beginPath();
-        crc2.moveTo(_x, _y - 40);
-        crc2.lineTo(_x - 10, _y);
-        crc2.lineTo(_x + 10, _y);
+        crc2.moveTo(_x - 10, _y + 70);
+        crc2.lineTo(_x + 10, _y + 70);
+        crc2.lineTo(_x + 7, _y - 0);
         crc2.closePath();
-        crc2.fillStyle = "#008000";
-        crc2.strokeStyle = "#008000";
+        crc2.fillStyle = "#612A05";
         crc2.fill();
-        crc2.stroke();
+        crc2.beginPath();
+        crc2.moveTo(_x - 30, _y + 50);
+        crc2.lineTo(_x, _y - 20);
+        crc2.lineTo(_x + 30, _y + 50);
+        crc2.closePath();
+        crc2.fillStyle = "#018A0E";
+        crc2.fill();
+    }
+    function gernerateTrees2() {
+        for (let i = 0; i < 4; i++) {
+            let x = 550 + Math.random() * 150;
+            let y = 600 + Math.random() * 150;
+            drawTrees2(x, y);
+        }
+    }
+    function drawTrees2(_x, _y) {
+        crc2.beginPath();
+        crc2.moveTo(_x - 10, _y + 70);
+        crc2.lineTo(_x + 10, _y + 70);
+        crc2.lineTo(_x + 7, _y - 0);
+        crc2.closePath();
+        crc2.fillStyle = "#612A05";
+        crc2.fill();
+        crc2.beginPath();
+        crc2.moveTo(_x - 30, _y + 50);
+        crc2.lineTo(_x, _y - 20);
+        crc2.lineTo(_x + 30, _y + 50);
+        crc2.closePath();
+        crc2.fillStyle = "#018A0E";
+        crc2.fill();
     }
     //Sonne
     function createSun() {

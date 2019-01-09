@@ -7,6 +7,7 @@ namespace aufgabe_9 {
         crc2 = canvas.getContext("2d");
 
 
+     
      createSky();
      createCloud();
      createSun();
@@ -43,7 +44,7 @@ namespace aufgabe_9 {
   
     
     //Wolken
-    function createCloud(): void{
+    function createCloud(): void {
         crc2.beginPath();
         crc2.arc(560, 125, 18, 0, 2 * Math.PI);
         crc2.arc(575, 130, 15, 0, 2 * Math.PI);
@@ -138,7 +139,7 @@ namespace aufgabe_9 {
         crc2.fillStyle = "#018A0E";
         crc2.fill();
 }
-}
+
     
     //Sonne
     
@@ -262,8 +263,5 @@ namespace aufgabe_9 {
         crc2.fillRect(552, 350, 17, 75);
         crc2.fillRect(528, 350, 41, 12);
       }
-    
-    
-    
-    
-    }
+}
+
