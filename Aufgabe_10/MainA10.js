@@ -47,7 +47,7 @@ var A10_Winter;
         gradient.addColorStop(1, "#f6bd31");
         let centerX = 170;
         let centerY = 75;
-        let radius = 40;
+        let radius = 80;
         A10_Winter.crc2.beginPath();
         A10_Winter.crc2.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
         A10_Winter.crc2.fillStyle = gradient;
@@ -63,9 +63,9 @@ var A10_Winter;
         A10_Winter.crc2.closePath();
         var grd = A10_Winter.crc2.createLinearGradient(0, 0, 700, 1110);
         // light blue
-        grd.addColorStop(0, "#EFFEFF");
+        grd.addColorStop(0, "#c0ebea");
         // dark blue
-        grd.addColorStop(1, "#4AF3FF");
+        grd.addColorStop(1, "#6de6f5");
         A10_Winter.crc2.fillStyle = grd;
         A10_Winter.crc2.fill();
     }
@@ -74,7 +74,7 @@ var A10_Winter;
         A10_Winter.crc2.arc(50, 220, 45, 0, 2 * Math.PI);
         A10_Winter.crc2.arc(120, 220, 70, 0, 2 * Math.PI);
         A10_Winter.crc2.arc(190, 220, 45, 0, 2 * Math.PI);
-        A10_Winter.crc2.fillStyle = "#FFFFFF";
+        A10_Winter.crc2.fillStyle = "#e6f0ef";
         A10_Winter.crc2.fill();
     }
     function drawCloud2() {
@@ -107,7 +107,7 @@ var A10_Winter;
         A10_Winter.crc2.lineTo(_x, _y - 20);
         A10_Winter.crc2.lineTo(_x + 30, _y + 50);
         A10_Winter.crc2.closePath();
-        A10_Winter.crc2.fillStyle = "#018A0E";
+        A10_Winter.crc2.fillStyle = "#74a741";
         A10_Winter.crc2.fill();
     }
     function gernerateTrees2() {
