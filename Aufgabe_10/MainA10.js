@@ -1,67 +1,92 @@
 var A10_Winter;
 (function (A10_Winter) {
     window.addEventListener("load", init);
+    let snowflakes = [];
+    let childsDown = [];
+    let childsUp = [];
     let fps = 25;
     let imgData;
-    let flakes = [];
     function init(_event) {
-        console.log("Canvas started");
         let canvas = document.getElementsByTagName("canvas")[0];
         A10_Winter.crc2 = canvas.getContext("2d");
-        console.log(A10_Winter.crc2);
-        createSky();
-        createCloud();
-        createSun();
+        drawSky();
+        drawSun();
         gernerateTrees();
         gernerateTrees2();
+        drawCloud1();
+        drawCloud2();
         imgData = A10_Winter.crc2.getImageData(0, 0, 700, 1100);
         generateSnow();
-        createSleigh();
-        createPeople();
+        generateChildDown();
+        generateChildUp();
         update();
     }
     function update() {
         A10_Winter.crc2.putImageData(imgData, 0, 0);
         window.setTimeout(update, 1000 / fps);
-        for (let i = 0; i < flakes.length; i++) {
-            let flake = flakes[i];
-            flake.move();
-            flake.draw();
+        for (let i = 0; i < snowflakes.length; i++) {
+            let snowflake = snowflakes[i];
+            snowflake.move();
+            snowflake.draw();
+        }
+        for (let i = 0; i < childsDown.length; i++) {
+            let childd = childsDown[i];
+            childd.move();
+            childd.draw();
+        }
+        for (let i = 0; i < childsUp.length; i++) {
+            let childu = childsUp[i];
+            childu.move();
+            childu.draw();
         }
     }
-    // Himmel
-    function createSky() {
+    function drawSun() {
+        var gradient = A10_Winter.crc2.createRadialGradient(300, 80, 10, 238, 5, 300);
+        gradient.addColorStop(0, "#f6d531");
+        gradient.addColorStop(0.5, "#f6e731");
+        gradient.addColorStop(1, "#f6bd31");
+        let centerX = 170;
+        let centerY = 75;
+        let radius = 40;
         A10_Winter.crc2.beginPath();
-        A10_Winter.crc2.lineTo(0, 670);
-        A10_Winter.crc2.lineTo(1300, 0);
+        A10_Winter.crc2.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+        A10_Winter.crc2.fillStyle = gradient;
+        A10_Winter.crc2.fill();
+    }
+    function drawSky() {
+        A10_Winter.crc2.moveTo(0, 350);
+        A10_Winter.crc2.beginPath();
+        A10_Winter.crc2.lineTo(700, 700);
+        A10_Winter.crc2.lineTo(700, 0);
         A10_Winter.crc2.lineTo(0, 0);
-        A10_Winter.crc2.lineTo(0, 0);
+        A10_Winter.crc2.lineTo(0, 350);
         A10_Winter.crc2.closePath();
-        A10_Winter.crc2.fillStyle = "#A9BCF5";
+        var grd = A10_Winter.crc2.createLinearGradient(0, 0, 700, 1110);
+        // light blue
+        grd.addColorStop(0, "#EFFEFF");
+        // dark blue
+        grd.addColorStop(1, "#4AF3FF");
+        A10_Winter.crc2.fillStyle = grd;
         A10_Winter.crc2.fill();
     }
-    //Wolken
-    function createCloud() {
+    function drawCloud1() {
         A10_Winter.crc2.beginPath();
-        A10_Winter.crc2.arc(560, 125, 18, 0, 2 * Math.PI);
-        A10_Winter.crc2.arc(575, 130, 15, 0, 2 * Math.PI);
-        A10_Winter.crc2.arc(545, 130, 15, 0, 2 * Math.PI);
-        A10_Winter.crc2.fillStyle = "#ffffff";
-        A10_Winter.crc2.fill();
-        A10_Winter.crc2.beginPath();
-        A10_Winter.crc2.arc(300, 80, 18, 0, 2 * Math.PI);
-        A10_Winter.crc2.arc(315, 85, 15, 0, 2 * Math.PI);
-        A10_Winter.crc2.arc(285, 85, 15, 0, 2 * Math.PI);
-        A10_Winter.crc2.fillStyle = "#FAFAFA";
-        A10_Winter.crc2.fill();
-        A10_Winter.crc2.beginPath();
-        A10_Winter.crc2.arc(120, 150, 18, 0, 2 * Math.PI);
-        A10_Winter.crc2.arc(135, 155, 17, 0, 2 * Math.PI);
-        A10_Winter.crc2.arc(105, 155, 17, 0, 2 * Math.PI);
-        A10_Winter.crc2.fillStyle = "#ffffff";
+        A10_Winter.crc2.arc(50, 220, 45, 0, 2 * Math.PI);
+        A10_Winter.crc2.arc(120, 220, 70, 0, 2 * Math.PI);
+        A10_Winter.crc2.arc(190, 220, 45, 0, 2 * Math.PI);
+        A10_Winter.crc2.fillStyle = "#FFFFFF";
         A10_Winter.crc2.fill();
     }
-    // B�ume
+    function drawCloud2() {
+        A10_Winter.crc2.beginPath();
+        A10_Winter.crc2.arc(470, 180, 20, 0, 2 * Math.PI);
+        A10_Winter.crc2.arc(510, 180, 40, 0, 2 * Math.PI);
+        A10_Winter.crc2.arc(570, 180, 70, 0, 2 * Math.PI);
+        A10_Winter.crc2.arc(630, 180, 40, 0, 2 * Math.PI);
+        A10_Winter.crc2.arc(670, 180, 20, 0, 2 * Math.PI);
+        A10_Winter.crc2.fillStyle = "#FFFFFF";
+        A10_Winter.crc2.fill();
+    }
     function gernerateTrees() {
         for (let i = 0; i < 8; i++) {
             let x = 40 + Math.random() * 200;
@@ -108,100 +133,34 @@ var A10_Winter;
         A10_Winter.crc2.fillStyle = "#018A0E";
         A10_Winter.crc2.fill();
     }
-    //Sonne
-    function createSun() {
-        A10_Winter.crc2.beginPath();
-        A10_Winter.crc2.arc(65, 70, 50, 0, 2 * Math.PI);
-        A10_Winter.crc2.fillStyle = "#F3F781";
-        A10_Winter.crc2.fill();
-    }
     function generateSnow() {
-        for (let i = 0; i < 100; i++) {
-            let flake = new A10_Winter.Snowflake();
-            flake.x = Math.random() * A10_Winter.crc2.canvas.width;
-            flake.y = Math.random() * A10_Winter.crc2.canvas.height;
-            flake.dx = Math.random() * 700;
-            flake.dy = Math.random() * 1100;
-            flake.size = Math.random() * 5 + 2;
-            flakes.push(flake);
+        for (let i = 0; i < 500; i++) {
+            let snowflake = new A10_Winter.Snow();
+            snowflake.xPos = Math.random() * 700;
+            snowflake.yPos = Math.random() * 1100;
+            snowflake.draw();
+            snowflakes.push(snowflake);
         }
     }
-    //Schlitten
-    function createSleigh() {
-        A10_Winter.crc2.beginPath();
-        A10_Winter.crc2.moveTo(400, 570);
-        A10_Winter.crc2.lineTo(300, 620);
-        A10_Winter.crc2.lineWidth = 10;
-        A10_Winter.crc2.strokeStyle = "#8b5a2b";
-        A10_Winter.crc2.arc(280, 615, 13, 1, 1.6 * Math.PI);
-        A10_Winter.crc2.stroke();
-        A10_Winter.crc2.beginPath();
-        A10_Winter.crc2.moveTo(300, 620);
-        A10_Winter.crc2.lineTo(280, 590);
-        A10_Winter.crc2.lineWidth = 8;
-        A10_Winter.crc2.strokeStyle = "#8b5a2b";
-        A10_Winter.crc2.stroke();
-        A10_Winter.crc2.beginPath();
-        A10_Winter.crc2.moveTo(380, 540);
-        A10_Winter.crc2.lineTo(280, 590);
-        A10_Winter.crc2.lineWidth = 10;
-        A10_Winter.crc2.strokeStyle = "#8b5a2b";
-        A10_Winter.crc2.arc(250, 585, 13, 1, 1.6 * Math.PI);
-        A10_Winter.crc2.stroke();
+    function generateChildDown() {
+        for (let i = 0; i < 5; i++) {
+            let childd = new A10_Winter.ChildDown();
+            childd.xPos = Math.random() * 100;
+            childd.yPos = Math.random() * 250 + 400;
+            childd.color = childd.getRandomColor();
+            childd.draw();
+            childsDown.push(childd);
+        }
     }
-    function createPeople() {
-        //Schlittenfahrer 
-        A10_Winter.crc2.beginPath();
-        A10_Winter.crc2.arc(348, 457, 25, 0, 2 * Math.PI, false);
-        A10_Winter.crc2.fillStyle = "#F7BE81";
-        A10_Winter.crc2.fill();
-        A10_Winter.crc2.lineWidth = 1.2;
-        A10_Winter.crc2.strokeStyle = "#A57658";
-        A10_Winter.crc2.stroke();
-        A10_Winter.crc2.fillStyle = "#8A0808";
-        A10_Winter.crc2.fillRect(338, 480, 20, 30);
-        A10_Winter.crc2.fillRect(328, 495, 40, 65);
-        A10_Winter.crc2.fillRect(300, 520, 60, 15);
-        A10_Winter.crc2.beginPath();
-        A10_Winter.crc2.arc(297, 527, 6, 0, 2 * Math.PI, false);
-        A10_Winter.crc2.fillStyle = "#F7BE81";
-        A10_Winter.crc2.fill();
-        A10_Winter.crc2.beginPath();
-        A10_Winter.crc2.moveTo(370, 550);
-        A10_Winter.crc2.lineTo(250, 620);
-        A10_Winter.crc2.lineWidth = 20;
-        A10_Winter.crc2.strokeStyle = "#0B243B";
-        A10_Winter.crc2.stroke();
-        // Person stehend
-        A10_Winter.crc2.beginPath();
-        A10_Winter.crc2.arc(548, 257, 25, 0, 2 * Math.PI, false);
-        A10_Winter.crc2.fillStyle = "#F7BE81";
-        A10_Winter.crc2.fill();
-        A10_Winter.crc2.lineWidth = 1.2;
-        A10_Winter.crc2.strokeStyle = "#A57658";
-        A10_Winter.crc2.stroke();
-        A10_Winter.crc2.fillStyle = "#FA5858";
-        A10_Winter.crc2.fillRect(538, 280, 20, 30);
-        A10_Winter.crc2.fillRect(528, 295, 40, 65);
-        A10_Winter.crc2.fillRect(500, 310, 60, 15);
-        A10_Winter.crc2.fillRect(540, 310, 60, 15);
-        A10_Winter.crc2.beginPath();
-        A10_Winter.crc2.arc(497, 317, 6, 0, 2 * Math.PI, false);
-        A10_Winter.crc2.fillStyle = "#F7BE81";
-        A10_Winter.crc2.fill();
-        A10_Winter.crc2.beginPath();
-        A10_Winter.crc2.arc(603, 317, 6, 0, 2 * Math.PI, false);
-        A10_Winter.crc2.fillStyle = "#F7BE81";
-        A10_Winter.crc2.fill();
-        A10_Winter.crc2.fillStyle = "#6E6E6E";
-        A10_Winter.crc2.fillRect(528, 350, 17, 75);
-        A10_Winter.crc2.fillRect(552, 350, 17, 75);
-        A10_Winter.crc2.fillRect(528, 350, 41, 12);
-    }
-    for (let i = 0; i < 20; i++) {
-        let flake = flakes[i];
-        flake.move();
-        flake.draw(); // keine Parameter erforderlich, denn der Stern weiß über sich Bescheid
+    function generateChildUp() {
+        for (let i = 0; i < 5; i++) {
+            let childu = new A10_Winter.ChildUp();
+            childu.xPos = Math.random() * 100 + 500;
+            childu.yPos = Math.random() * 100 + 900;
+            childu.color = childu.getRandomColor();
+            childu.draw();
+            childsUp.push(childu);
+        }
     }
 })(A10_Winter || (A10_Winter = {}));
 //# sourceMappingURL=MainA10.js.map

@@ -66,9 +66,9 @@ namespace A10_Winter {
         var gradient = crc2.createRadialGradient(300, 80, 10, 238, 5, 300);
 
 
-        gradient.addColorStop(0, "#F7FF00");
-        gradient.addColorStop(0.5, "#FEFFE4");
-        gradient.addColorStop(1, "#FAFDA2");
+        gradient.addColorStop(0, "#f6d531");
+        gradient.addColorStop(0.5, "#f6e731");
+        gradient.addColorStop(1, "#f6bd31");
 
         let centerX: number = 170;
         let centerY: number = 75;
