@@ -100,9 +100,9 @@ namespace A11_Rodelbahn {
             var gradient = crc2.createRadialGradient(300, 80, 10, 238, 5, 300);
 
 
-            gradient.addColorStop(0, "#F7FF00");
-            gradient.addColorStop(0.5, "#FEFFE4");
-            gradient.addColorStop(1, "#FAFDA2");
+            gradient.addColorStop(0, "#f9e006");
+            gradient.addColorStop(0.5, "#f9aa06");
+            gradient.addColorStop(1, "#f87907");
 
             let centerX: number = 170;
             let centerY: number = 75;
@@ -129,9 +129,9 @@ namespace A11_Rodelbahn {
 
             var grd = crc2.createLinearGradient(0, 0, 700, 1110);
             // light blue
-            grd.addColorStop(0, "#EFFEFF");
+            grd.addColorStop(0, "#73c8fb");
             // dark blue
-            grd.addColorStop(1, "#4AF3FF");
+            grd.addColorStop(1, "#3ab3fa");
             crc2.fillStyle = grd;
             crc2.fill();
         }//sky
@@ -142,7 +142,7 @@ namespace A11_Rodelbahn {
             crc2.arc(50, 220, 45, 0, 2 * Math.PI);
             crc2.arc(120, 220, 70, 0, 2 * Math.PI);
             crc2.arc(190, 220, 45, 0, 2 * Math.PI);
-            crc2.fillStyle = "#FFFFFF";
+            crc2.fillStyle = "#f1f1f1";
             crc2.fill();
         }//cloud1
 

@@ -62,9 +62,9 @@ var A11_Rodelbahn;
         } //child
         function drawSun() {
             var gradient = A11_Rodelbahn.crc2.createRadialGradient(300, 80, 10, 238, 5, 300);
-            gradient.addColorStop(0, "#F7FF00");
-            gradient.addColorStop(0.5, "#FEFFE4");
-            gradient.addColorStop(1, "#FAFDA2");
+            gradient.addColorStop(0, "#f9e006");
+            gradient.addColorStop(0.5, "#f9aa06");
+            gradient.addColorStop(1, "#f87907");
             let centerX = 170;
             let centerY = 75;
             let radius = 40;
@@ -83,9 +83,9 @@ var A11_Rodelbahn;
             A11_Rodelbahn.crc2.closePath();
             var grd = A11_Rodelbahn.crc2.createLinearGradient(0, 0, 700, 1110);
             // light blue
-            grd.addColorStop(0, "#EFFEFF");
+            grd.addColorStop(0, "#73c8fb");
             // dark blue
-            grd.addColorStop(1, "#4AF3FF");
+            grd.addColorStop(1, "#3ab3fa");
             A11_Rodelbahn.crc2.fillStyle = grd;
             A11_Rodelbahn.crc2.fill();
         } //sky
@@ -94,7 +94,7 @@ var A11_Rodelbahn;
             A11_Rodelbahn.crc2.arc(50, 220, 45, 0, 2 * Math.PI);
             A11_Rodelbahn.crc2.arc(120, 220, 70, 0, 2 * Math.PI);
             A11_Rodelbahn.crc2.arc(190, 220, 45, 0, 2 * Math.PI);
-            A11_Rodelbahn.crc2.fillStyle = "#FFFFFF";
+            A11_Rodelbahn.crc2.fillStyle = "#f1f1f1";
             A11_Rodelbahn.crc2.fill();
         } //cloud1
         function drawCloud2() {
