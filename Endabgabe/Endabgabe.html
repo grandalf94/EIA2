@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Rodelhang Terminator</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="Style.css">
+<script src="DrawObjects.js" type="text/javascript" charset="utf-8"></script>
+<script src="GameStart.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="Child.js" type="text/javascript" charset="utf-8"></script>
+<script src="slowChild.js" type="text/javascript" charset="utf-8"></script>
+<script src="Snow.js" type="text/javascript" charset="utf-8"></script>
+<script src="Snowball.js" type="text/javascript" charset="utf-8"></script>
+<script src="Client/DatabaseClient.js" type="text/javascript"
+	charset="utf-8"></script>
+<style>
+.crosshair {
+	cursor: crosshair
+}
+</style>
+<script src="Endabgabe.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<canvas class="crosshair" id="snowball" width=700 height=1100></canvas>
+	<div id="score">
+		<form action="https://endabgabe.herokuapp.com/">
+			<input id="playername" type="text" placeholder="Enter your Name"><br>
+		</form>
+		<button id="savescore" type="button">Save your score</button>
+		<button id="showtop" type="button">Show top scores</button>
+		<textarea id="scores" readonly rows="20" cols="40"></textarea>
+		<button id="playagain" class="button" type="button">Play
+			again</button>
+	</div>
+</body>
+</html>
