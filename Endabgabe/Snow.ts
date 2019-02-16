@@ -11,7 +11,7 @@ namespace Endabgabe {
         draw(): void {
 
             crc2.beginPath();
-            crc2.arc(this.xPos, this.yPos, 3, 0, 2 * Math.PI, false);
+            crc2.arc(this.xPos, this.yPos, 1, 0, 2 * Math.PI, false);
 
             crc2.fillStyle = "#F5FEFF";
             crc2.fill();
@@ -24,7 +24,7 @@ namespace Endabgabe {
 
         move(): void {
 
-            this.yDir = 2;
+            this.yDir = 1,5;
             this.xDir = Math.random() * 4 - 2;
 
             this.xPos += this.xDir;

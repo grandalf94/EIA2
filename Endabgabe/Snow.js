@@ -3,7 +3,7 @@ var Endabgabe;
     class Snow {
         draw() {
             Endabgabe.crc2.beginPath();
-            Endabgabe.crc2.arc(this.xPos, this.yPos, 3, 0, 2 * Math.PI, false);
+            Endabgabe.crc2.arc(this.xPos, this.yPos, 1, 0, 2 * Math.PI, false);
             Endabgabe.crc2.fillStyle = "#F5FEFF";
             Endabgabe.crc2.fill();
             Endabgabe.crc2.lineWidth = .2;
@@ -11,7 +11,7 @@ var Endabgabe;
             Endabgabe.crc2.stroke();
         }
         move() {
-            this.yDir = 2;
+            this.yDir = 1, 5;
             this.xDir = Math.random() * 4 - 2;
             this.xPos += this.xDir;
             this.yPos += this.yDir;

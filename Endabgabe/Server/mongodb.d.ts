@@ -1,3 +1,4 @@
+
 // Type definitions for MongoDB v2.1
 // Project: https://github.com/mongodb/node-mongodb-native/tree/2.1
 // Definitions by: Federico Caselli <https://github.com/CaselIT>
@@ -1357,4 +1358,5 @@ declare module "mongodb" {
     //http://mongodb.github.io/node-mongodb-native/2.1/api/CommandCursor.html#wrap
     wrap(stream: Stream): void;
   }
+}
 }

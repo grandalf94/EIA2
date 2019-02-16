@@ -1,8 +1,9 @@
-interface AssocStringString {
-    [key: string]: string;
+
+    interface AssocStringStrings {
+     [key: string]: string;
 }
 
-interface playerData {
-    name: string;
-    score: number;
-}
+    interface playerData {
+     name: string;
+     score: number;
+    }
