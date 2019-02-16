@@ -3,7 +3,7 @@ namespace Endabgabe {
 
     export let crc2: CanvasRenderingContext2D;
 
-    let address: string = "https://endabgabe.herokuapp.com/";
+    let address: string = "https://endabgabe-eia.herokuapp.com/";
     let snowflakes: Snow[] = [];
     let childsDown: ChildDown[] = [];
     let snowball: Snowball;

@@ -1,7 +1,7 @@
 var Endabgabe;
 (function (Endabgabe) {
     window.addEventListener("load", gamestart);
-    let address = "https://endabgabe.herokuapp.com/";
+    let address = "https://endabgabe-eia.herokuapp.com/";
     let snowflakes = [];
     let childsDown = [];
     let snowball;
