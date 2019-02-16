@@ -1,5 +1,5 @@
 
-    interface AssocStringStrings {
+    interface AssocStringString {
      [key: string]: string;
 }
 
