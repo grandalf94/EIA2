@@ -73,9 +73,9 @@ var Endabgabe;
     }
     function drawSun() {
         var gradient = Endabgabe.crc2.createRadialGradient(300, 80, 10, 238, 5, 300);
-        gradient.addColorStop(0, "#F7FF00");
-        gradient.addColorStop(0.5, "#ffb84d");
-        gradient.addColorStop(1, "#ff9900");
+        gradient.addColorStop(0, "#fffae6");
+        gradient.addColorStop(0.5, "#ffeb99");
+        gradient.addColorStop(1, "#ffdb4d");
         let centerX = 170;
         let centerY = 75;
         let radius = 40;
@@ -94,9 +94,9 @@ var Endabgabe;
         Endabgabe.crc2.closePath();
         var grd = Endabgabe.crc2.createLinearGradient(0, 0, 700, 1110);
         // light blue
-        grd.addColorStop(0, "#0073e6");
+        grd.addColorStop(0, "#1ab2ff");
         // dark blue
-        grd.addColorStop(1, "#3399ff");
+        grd.addColorStop(1, "#99ddff");
         Endabgabe.crc2.fillStyle = grd;
         Endabgabe.crc2.fill();
     }
@@ -105,7 +105,7 @@ var Endabgabe;
         Endabgabe.crc2.arc(50, 220, 45, 0, 2 * Math.PI);
         Endabgabe.crc2.arc(120, 220, 70, 0, 2 * Math.PI);
         Endabgabe.crc2.arc(190, 220, 45, 0, 2 * Math.PI);
-        Endabgabe.crc2.fillStyle = "#FFFFFF";
+        Endabgabe.crc2.fillStyle = "#e6f7ff";
         Endabgabe.crc2.fill();
     }
     function drawCloud2() {
@@ -115,7 +115,7 @@ var Endabgabe;
         Endabgabe.crc2.arc(570, 180, 70, 0, 2 * Math.PI);
         Endabgabe.crc2.arc(630, 180, 40, 0, 2 * Math.PI);
         Endabgabe.crc2.arc(670, 180, 20, 0, 2 * Math.PI);
-        Endabgabe.crc2.fillStyle = "#FFFFFF";
+        Endabgabe.crc2.fillStyle = "#e6f2ff";
         Endabgabe.crc2.fill();
     }
     function gernerateTrees() {
@@ -131,14 +131,14 @@ var Endabgabe;
         Endabgabe.crc2.lineTo(_x + 10, _y + 70);
         Endabgabe.crc2.lineTo(_x + 7, _y - 0);
         Endabgabe.crc2.closePath();
-        Endabgabe.crc2.fillStyle = "#612A05";
+        Endabgabe.crc2.fillStyle = "#c68c53";
         Endabgabe.crc2.fill();
         Endabgabe.crc2.beginPath();
         Endabgabe.crc2.moveTo(_x - 30, _y + 50);
         Endabgabe.crc2.lineTo(_x, _y - 20);
         Endabgabe.crc2.lineTo(_x + 30, _y + 50);
         Endabgabe.crc2.closePath();
-        Endabgabe.crc2.fillStyle = "#018A0E";
+        Endabgabe.crc2.fillStyle = "#00802b";
         Endabgabe.crc2.fill();
     }
     function gernerateTrees2() {

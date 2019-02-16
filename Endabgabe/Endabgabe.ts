@@ -113,9 +113,9 @@ namespace Endabgabe {
         var gradient = crc2.createRadialGradient(300, 80, 10, 238, 5, 300);
 
 
-        gradient.addColorStop(0, "#F7FF00");
-        gradient.addColorStop(0.5, "#ffb84d");
-        gradient.addColorStop(1, "#ff9900");
+        gradient.addColorStop(0, "#fffae6");
+        gradient.addColorStop(0.5, "#ffeb99");
+        gradient.addColorStop(1, "#ffdb4d");
 
         let centerX: number = 170;
         let centerY: number = 75;
@@ -141,9 +141,9 @@ namespace Endabgabe {
 
         var grd = crc2.createLinearGradient(0, 0, 700, 1110);
         // light blue
-        grd.addColorStop(0, "#0073e6");
+        grd.addColorStop(0, "#1ab2ff");
         // dark blue
-        grd.addColorStop(1, "#3399ff");
+        grd.addColorStop(1, "#99ddff");
         crc2.fillStyle = grd;
         crc2.fill();
 
@@ -156,7 +156,7 @@ namespace Endabgabe {
         crc2.arc(50, 220, 45, 0, 2 * Math.PI);
         crc2.arc(120, 220, 70, 0, 2 * Math.PI);
         crc2.arc(190, 220, 45, 0, 2 * Math.PI);
-        crc2.fillStyle = "#FFFFFF";
+        crc2.fillStyle = "#e6f7ff";
         crc2.fill();
     }
 
@@ -169,7 +169,7 @@ namespace Endabgabe {
         crc2.arc(630, 180, 40, 0, 2 * Math.PI);
         crc2.arc(670, 180, 20, 0, 2 * Math.PI);
 
-        crc2.fillStyle = "#FFFFFF";
+        crc2.fillStyle = "#e6f2ff";
         crc2.fill();
     }
 
@@ -193,7 +193,7 @@ namespace Endabgabe {
         crc2.lineTo(_x + 7, _y - 0);
         crc2.closePath();
 
-        crc2.fillStyle = "#612A05";
+        crc2.fillStyle = "#c68c53";
         crc2.fill();
 
         crc2.beginPath();
@@ -202,7 +202,7 @@ namespace Endabgabe {
         crc2.lineTo(_x + 30, _y + 50);
         crc2.closePath();
 
-        crc2.fillStyle = "#018A0E";
+        crc2.fillStyle = "#00802b";
         crc2.fill();
     }
 
