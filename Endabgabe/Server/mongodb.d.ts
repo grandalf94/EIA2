@@ -1359,4 +1359,4 @@ declare module "mongodb" {
     wrap(stream: Stream): void;
   }
 }
-}
+
