@@ -2,7 +2,7 @@ var invino;
 (function (invino) {
     window.addEventListener("load", init);
     //let serverAddress: string = "http://localhost:8100";
-    let serverAddress = "https://endabgabe.herokuapp.com/";
+    let serverAddress = "https://endabgabe-eia.herokuapp.com/";
     function init(_event) {
         console.log("Init");
         let insertButton = document.getElementById("savescore");

@@ -1,7 +1,7 @@
 namespace invino {
     window.addEventListener("load", init);
     //let serverAddress: string = "http://localhost:8100";
-    let serverAddress: string = "https://endabgabe.herokuapp.com/";
+    let serverAddress: string = "https://endabgabe-eia.herokuapp.com/";
     interface playerArray {
         name: string;
         score: number;
